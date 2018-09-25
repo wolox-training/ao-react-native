@@ -4,7 +4,7 @@
 
   &::before {
     content: '';
-    display: $d-inline-flex;
+    display: inline-flex;
     width: 70px;
     height: 90px;
     background: url('assets/triangle.svg') center center no-repeat;
