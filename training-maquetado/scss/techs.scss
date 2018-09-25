@@ -1,7 +1,7 @@
 .cont-tech {
   box-sizing: border-box;
   padding: 0 70px;
-  
+
   p {
     font-size: 16px;
   }
@@ -18,6 +18,7 @@
 
     &::before {
       content: '';
+      transition: all 0.5s ease;
       position: absolute;
       width: 100%;
       height: 100%;
@@ -26,6 +27,16 @@
       border: 1px solid $green;
       border-radius: 5px;
       z-index: -1;
+    }
+
+    &:hover {
+      cursor: pointer;
+      
+      &::before {
+        transition: all 0.5s ease;
+        top: 15px;
+        left: 15px;
+      }
     }
   }
 
