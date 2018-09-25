@@ -1,17 +1,15 @@
 .content-layout {
-  padding: 50px 70px;
+  padding: 0 70px;
   margin: 0 auto;
   width: 100%;
   height: auto;
   max-width: 1700px;
 
-  &:first-child {
-    padding-bottom: 0;
-    margin-bottom: 50px;
+  &:nth-of-type(1) {
+    margin: 140px 0 50px;
   }
 
   &:last-child {
-    padding-top: 0;
-    margin-top: 50px;
+    margin: 50px 0;
   }
 }
