@@ -63,6 +63,7 @@ typings/
 # DS_Store
 .DS_Store
 
-# sass chache and application.map
+# sass chache and application.css
 .sass-cache
+training-maquetado/application.css
 training-maquetado/application.css.map
