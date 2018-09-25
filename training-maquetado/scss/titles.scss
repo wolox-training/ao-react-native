@@ -1,0 +1,20 @@
+.title-layout {
+  width: 100%;
+  max-width: 200px;
+
+  &::before {
+    content: '';
+    display: inline-flex;
+    width: 70px;
+    height: 90px;
+    background: url('assets/triangle.svg') center center no-repeat;
+    background-size: contain;
+    position: relative;
+    left: 8%;
+  }
+
+  .title-text{
+    z-index: 1;
+    font-size: 18px;
+  }
+}
