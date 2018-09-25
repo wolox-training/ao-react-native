@@ -1,5 +1,17 @@
-.title {
-  color: $blue;
+.d-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+@mixin d-inline-flex {
+  display: inline-flex;
 }
 
 .nav-height {
@@ -8,14 +20,6 @@
 
 .nav-logo-heigh {
   height: 30px;
-}
-
-.title-decoration-height {
-  height: 90px;
-}
-
-.title-decoration-width {
-  height: 70px;
 }
 
 .tech-logo-size {

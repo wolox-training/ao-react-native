@@ -85,20 +85,20 @@ li {
   color: #999;
   opacity: 1; }
 
-.title {
-  color: #00ADEE; }
+.d-flex {
+  display: flex; }
+
+.justify-center {
+  justify-content: center; }
+
+.align-center {
+  align-items: center; }
 
 .nav-height {
   height: 70px; }
 
 .nav-logo-heigh {
   height: 30px; }
-
-.title-decoration-height {
-  height: 90px; }
-
-.title-decoration-width {
-  height: 70px; }
 
 .tech-logo-size {
   height: 100px; }
@@ -111,5 +111,21 @@ li {
 
 .text-small {
   height: 12px; }
+
+.title-layout {
+  width: 100%;
+  max-width: 200px; }
+  .title-layout::before {
+    content: '';
+    display: inline-flex;
+    width: 70px;
+    height: 90px;
+    background: url("assets/triangle.svg") center center no-repeat;
+    background-size: contain;
+    position: relative;
+    left: 8%; }
+  .title-layout .title-text {
+    z-index: 1;
+    font-size: 18px; }
 
 /*# sourceMappingURL=application.css.map */
