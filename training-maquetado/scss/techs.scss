@@ -30,9 +30,9 @@
     }
 
     &:hover {
-
+      cursor: pointer;
+      
       &::before {
-        cursor: pointer;
         transition: all 0.5s ease;
         top: 15px;
         left: 15px;
