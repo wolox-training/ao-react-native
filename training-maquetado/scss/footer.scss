@@ -5,12 +5,12 @@
   background-color: $blue;
   position: relative;
 
-  h3,
-  small {
+  .footer-logo,
+  .footer-copyright {
     color: $white;
   }
 
-  .footer-title{
+  .footer-title {
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 20px;
