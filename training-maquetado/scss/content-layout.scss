@@ -5,11 +5,11 @@
   height: auto;
   max-width: 1700px;
 
-  &:nth-of-type(1) {
+  &:first-of-type {
     margin: 140px 0 50px;
   }
 
-  &:last-child {
+  &:last-of-type {
     margin: 50px 0;
   }
 }
