@@ -3,7 +3,7 @@
   padding: 0 70px;
 
   p {
-    font-size: 16px;
+    font-size: $text-medium;
   }
 
   .tech-card {
@@ -57,7 +57,7 @@
       max-height: 110px;
     }
 
-    p {
+    .tech-desc-img {
       width: 100%;
       text-align: center;
 
@@ -71,9 +71,8 @@
   .tech-desc {
     padding: 5px 15px;
 
-    p {
+    .txt-desc {
       text-align: center;
-      font-size: 15px;
       line-height: 25px;
     }
   }
