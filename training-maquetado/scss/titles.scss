@@ -1,12 +1,12 @@
 .title-layout {
   width: 100%;
-  max-width: 200px;
+  max-width: 250px;
 
   &::before {
     content: '';
     display: inline-flex;
-    width: 70px;
-    height: 90px;
+    width: $title-decoration-width;
+    height: $title-decoration-height;
     background: url('assets/triangle.svg') center center no-repeat;
     background-size: contain;
     position: relative;
@@ -15,6 +15,6 @@
 
   .title-text{
     z-index: 1;
-    font-size: 18px;
+    font-size: $text-big;
   }
 }
