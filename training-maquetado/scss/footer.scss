@@ -3,9 +3,13 @@
   height: 250px;
   max-height: 100%;
   background-color: $blue;
-  position: relative;
+  padding: 25px;
 
-  .footer-logo,
+  .cont-img {
+    flex-grow: 1;
+  }
+
+  .footer-title,
   .footer-copyright {
     color: $white;
   }
@@ -13,8 +17,8 @@
   .footer-title {
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 20px;
-    font-size: 24px;
+    font-size: $text-big;
+    margin-bottom: 15px;
   }
 
   .footer-logo {
@@ -23,8 +27,7 @@
   }
 
   .footer-copyright {
-    position: absolute;
-    bottom: 10%;
-    right: 2%;
+    font-size: $text-small;
+    align-self: flex-end;
   }
 }
