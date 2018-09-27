@@ -1,11 +1,7 @@
 .cont-tech {
-  grid-template-areas: 'frist-tech . .''frist-tech . .';
+  grid-template-areas: 'first-tech . .''first-tech . .';
   box-sizing: border-box;
-  padding: 0 70px; 
-
-  p {
-    font-size: $text-medium;
-  }
+  padding: 0 70px;
 
   .tech-card {
     max-width: 300px;
@@ -16,7 +12,7 @@
     padding: 0 25px;
 
     &:first-of-type {
-      grid-area: frist-tech;
+      grid-area: first-tech;
     }
 
     &:nth-of-type(even) {
@@ -58,6 +54,7 @@
     .txt-desc {
       text-align: center;
       line-height: 25px;
+      font-size: $text-medium;
     }
   }
 }
