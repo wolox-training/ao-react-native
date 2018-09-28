@@ -6,4 +6,5 @@ export function isArray(aPossibleArray) {
   return aPossibleArray.constructor === Array;
 }
 
-// export default isArray;
+export default isArray;
+
