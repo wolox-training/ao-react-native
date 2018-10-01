@@ -2,10 +2,10 @@ import { isArray } from './utils';
 
 export function min(param, ...arg) {
   let val;
-  if (param !== undefined && param !== null) {
+  if (param) {
     if (isArray(param)) {
       val = Math.min(...param);
-    } else if (arg.length > 0) {
+    } else if (arg.length) {
       arg.push(param);
       val = Math.min(...arg);
     } else {
@@ -16,19 +16,11 @@ export function min(param, ...arg) {
 }
 
 export function copy(data) {
-  let copyArr;
-  if (isArray(data)) {
-    copyArr = [...data];
-  } else {
-    copyArr = { ...data };
-  }
-  return copyArr;
+  return isArray(data) ? [...data] : { ...data };
 }
 
 export function reverseMerge(arr1, arr2) {
-  const newArr = [];
-  newArr.push(...arr2);
-  newArr.push(...arr1);
+  const newArr = [].concat(...arr2).concat(...arr1);
   return newArr;
 }
 
