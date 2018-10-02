@@ -20,8 +20,7 @@ export function copy(data) {
 }
 
 export function reverseMerge(arr1, arr2) {
-  const newArr = [].concat(...arr2).concat(...arr1);
-  return newArr;
+  return [...arr2, ...arr1];
 }
 
 export function filterAttribs({ a, b, ...json }) {
