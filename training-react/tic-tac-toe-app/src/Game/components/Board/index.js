@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import Square from './components/Square';
+import './styles.css';
 
 class Board extends Component {
   state = {
