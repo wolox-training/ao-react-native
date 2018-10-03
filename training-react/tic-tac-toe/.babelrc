@@ -9,6 +9,7 @@
         "@components": "./src/app/components",
         "@screens": "./src/app/screens",
         "@redux": "./src/redux",
+        "@consts": "./src/constants",
         "@variables": "./src/scss/variables"
       }
     }]

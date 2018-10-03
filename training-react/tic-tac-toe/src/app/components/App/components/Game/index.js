@@ -1,3 +1,4 @@
+import * as gameConsts from '@consts/game';
 import React, { Component } from 'react';
 
 import Board from './components/Board';
@@ -11,9 +12,8 @@ class Game extends Component {
   };
 
   calculateWinner = squares => {
-    const lines = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
-    for (let i = 0; i < lines.length; i += 1) {
-      const [a, b, c] = lines[i];
+    for (let i = 0; i < gameConsts.lines.length; i += 1) {
+      const [a, b, c] = gameConsts.lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }
@@ -36,12 +36,12 @@ class Game extends Component {
     });
   };
 
-  jumpTo(step) {
+  jumpTo = step => {
     this.setState({
       stepNumber: step,
       xIsNext: step % 2 === 0
     });
-  }
+  };
 
   render() {
     const history = this.state.history;
