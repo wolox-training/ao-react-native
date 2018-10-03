@@ -56,12 +56,7 @@ class Game extends Component {
       );
     });
 
-    let status;
-    if (winner) {
-      status = `Winner: ${winner}`;
-    } else {
-      status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
-    }
+    const status = winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     return (
       <div className={style.game}>
         <div>
