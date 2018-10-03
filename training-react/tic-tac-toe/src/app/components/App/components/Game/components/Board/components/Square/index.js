@@ -12,8 +12,8 @@ function Square(props) {
 }
 
 Square.propTypes = {
-  value: PropTypes.string,
-  onClick: PropTypes.func
+  value: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default Square;
