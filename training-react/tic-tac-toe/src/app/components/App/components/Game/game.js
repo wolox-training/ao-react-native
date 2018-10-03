@@ -1,8 +1,9 @@
 import * as gameConsts from '@consts/game';
 import React, { Component } from 'react';
 
-import Board from './components/Board';
+import Board from './components/Board/board';
 import style from './styles.scss';
+import Moves from './components/Moves/moves';
 
 class Game extends Component {
   state = {
@@ -47,14 +48,6 @@ class Game extends Component {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
-    const moves = history.map((step, move) => {
-      const desc = move ? `Go to move #${move}` : 'Go to game start';
-      return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
-      );
-    });
 
     const status = winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     return (
@@ -64,7 +57,7 @@ class Game extends Component {
         </div>
         <div className={style.gameInfo}>
           <div>{status}</div>
-          <ol>{moves}</ol>
+          {<Moves history={history} jump={this.jumpTo} />}
         </div>
       </div>
     );
