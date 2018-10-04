@@ -7,7 +7,7 @@ import Moves from './components/Moves/moves';
 
 class Game extends Component {
   state = {
-    history: [{ squares: Array(9).fill(null) }],
+    history: [{ squares: Array(9).fill(null), step: 'step0' }],
     xIsNext: true,
     stepNumber: 0
   };
@@ -26,12 +26,15 @@ class Game extends Component {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
+    const step = `step${this.state.stepNumber + 1}`;
     if (this.calculateWinner(squares) || squares[i]) {
       return;
     }
+
     squares[i] = this.state.xIsNext ? 'X' : 'O';
+
     this.setState({
-      history: history.concat([{ squares }]),
+      history: history.concat([{ squares, step }]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext
     });

@@ -6,7 +6,7 @@ import Step from './components/Step/step';
 class Moves extends Component {
   renderMoves = (step, move) => {
     const { jump } = this.props;
-    return <Step key={move} onClick={jump} move={move} />;
+    return <Step key={step.step} onClick={jump} move={move} />;
   };
 
   render() {
