@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { arrayOf, func, shape, string } from 'prop-types';
 
-import Step from './components/Step/step';
+import Step from './components/Step';
 
 class Moves extends Component {
   renderMoves = (step, move) => {

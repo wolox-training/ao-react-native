@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { arrayOf, string, func } from 'prop-types';
 
-import Square from './components/Square/square';
+import Square from './components/Square';
 
 class Board extends Component {
   renderSquare = i => {

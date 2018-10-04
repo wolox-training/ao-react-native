@@ -1,9 +1,9 @@
 import * as gameConsts from '@consts/game';
 import React, { Component } from 'react';
 
-import Board from './components/Board/board';
+import Board from './components/Board';
 import style from './styles.scss';
-import Moves from './components/Moves/moves';
+import Moves from './components/Moves';
 
 class Game extends Component {
   state = {
