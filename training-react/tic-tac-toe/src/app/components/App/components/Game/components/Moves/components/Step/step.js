@@ -10,7 +10,7 @@ class Step extends PureComponent {
   render() {
     const { move } = this.props;
     return (
-      <li key={move}>
+      <li>
         <button onClick={this.handleClick}>{move ? `Go to move #${move}` : 'Go to game start'}</button>
       </li>
     );

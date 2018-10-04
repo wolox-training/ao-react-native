@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { arrayOf, func, shape } from 'prop-types';
+import { arrayOf, func, shape, string } from 'prop-types';
 
 import Step from './components/Step/step';
 
 class Moves extends Component {
   renderMoves = (step, move) => {
     const { jump } = this.props;
-    return <Step onClick={jump} move={move} />;
+    return <Step key={move} onClick={jump} move={move} />;
   };
 
   render() {
@@ -16,7 +16,11 @@ class Moves extends Component {
 }
 
 Moves.propTypes = {
-  history: arrayOf(shape),
+  history: arrayOf(
+    shape({
+      squares: arrayOf(string)
+    })
+  ).isRequired,
   jump: func.isRequired
 };
 

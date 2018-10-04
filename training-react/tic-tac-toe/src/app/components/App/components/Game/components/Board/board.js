@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { node, func } from 'prop-types';
+import { arrayOf, string, func } from 'prop-types';
 
 import Square from './components/Square/square';
 
@@ -34,7 +34,7 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-  squares: node.isRequired,
+  squares: arrayOf(string).isRequired,
   onClick: func.isRequired
 };
 
