@@ -8,7 +8,7 @@ import Board from './components/Board';
 import style from './styles.scss';
 import Moves from './components/Moves';
 
-export const Game = ({ history, stepNumber, xIsNext, handleClick, jumpTo }) => {
+const Game = ({ history, stepNumber, xIsNext, handleClick, jumpTo }) => {
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
 
