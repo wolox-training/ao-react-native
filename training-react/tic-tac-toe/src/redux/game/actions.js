@@ -11,12 +11,12 @@ const actionCreators = {
     step
   }),
   clickSquare: i => (dispatch, getState) => {
-    const currentState = getState().game.stepNumber;
-    const history = getState().game.history.slice(0, currentState + 1);
-    const current = history[history.length - 1];
+    const { stepNumber, history, xIsNext } = getState().game;
+
+    const currentHistory = history.slice(0, stepNumber + 1);
+    const current = currentHistory[currentHistory.length - 1];
     const squares = current.squares.slice();
-    const step = `step${currentState + 1}`;
-    const xIsNext = getState().game.xIsNext;
+    const step = `step${stepNumber + 1}`;
 
     if (calculateWinner(squares) || squares[i]) {
       return;
@@ -27,8 +27,8 @@ const actionCreators = {
     dispatch({
       type: actionsTypes.clickSquare,
       payload: {
-        history: history.concat([{ squares, step }]),
-        stepNumber: history.length,
+        history: currentHistory.concat([{ squares, step }]),
+        stepNumber: currentHistory.length,
         xIsNext: !xIsNext
       }
     });
