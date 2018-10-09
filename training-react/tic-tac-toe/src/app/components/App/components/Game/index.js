@@ -1,7 +1,7 @@
-import { calculateWinner } from '@consts/game';
+import { calculateWinner } from '@utils/utils';
 import React from 'react';
 import { connect } from 'react-redux';
-import { jumpToStep, clickSquare } from '@redux/game/actions';
+import actionCreators from '@redux/game/actions';
 import { string, func, arrayOf, shape, number, bool } from 'prop-types';
 
 import Board from './components/Board';
@@ -33,15 +33,15 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  jumpTo: step => dispatch(jumpToStep(step)),
-  handleClick: i => dispatch(clickSquare(i))
+  jumpTo: step => dispatch(actionCreators.jumpToStep(step)),
+  handleClick: i => dispatch(actionCreators.clickSquare(i))
 });
 
 Game.propTypes = {
   history: arrayOf(
     shape({
       squares: arrayOf(string)
-    })
+    }).isRequired
   ),
   xIsNext: bool.isRequired,
   stepNumber: number.isRequired,

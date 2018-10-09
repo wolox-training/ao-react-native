@@ -1,28 +1,38 @@
-import { actionsTypes, calculateWinner } from '@consts/game';
+import { calculateWinner } from '@utils/utils';
 
-const jumpToStep = step => ({
-  type: actionsTypes.jumpToStep,
-  step
-});
-
-const clickSquare = i => (dispatch, getState) => {
-  const history = getState().game.history.slice(0, getState().game.stepNumber + 1);
-  const current = history[history.length - 1];
-  const squares = current.squares.slice();
-  const step = `step${getState().game.stepNumber + 1}`;
-  if (calculateWinner(squares) || squares[i]) {
-    return;
-  }
-  squares[i] = getState().game.xIsNext ? 'X' : 'O';
-  const xIsNext = !getState().game.xIsNext;
-  dispatch({
-    type: actionsTypes.clickSquare,
-    payload: {
-      history: history.concat([{ squares, step }]),
-      stepNumber: history.length,
-      xIsNext
-    }
-  });
+export const actionsTypes = {
+  jumpToStep: 'JUMP_TO_STEP',
+  clickSquare: 'CLICK_TO_SQUARE'
 };
 
-export { jumpToStep, clickSquare };
+const actionCreators = {
+  jumpToStep: step => ({
+    type: actionsTypes.jumpToStep,
+    step
+  }),
+  clickSquare: i => (dispatch, getState) => {
+    const currentState = getState().game.stepNumber;
+    const history = getState().game.history.slice(0, currentState + 1);
+    const current = history[history.length - 1];
+    const squares = current.squares.slice();
+    const step = `step${currentState + 1}`;
+    const xIsNext = getState().game.xIsNext;
+
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
+
+    squares[i] = xIsNext ? 'X' : 'O';
+
+    dispatch({
+      type: actionsTypes.clickSquare,
+      payload: {
+        history: history.concat([{ squares, step }]),
+        stepNumber: history.length,
+        xIsNext: !xIsNext
+      }
+    });
+  }
+};
+
+export default actionCreators;
