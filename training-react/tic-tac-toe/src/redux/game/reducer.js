@@ -1,4 +1,4 @@
-import { actionsTypes } from '@consts/game';
+import { actionsTypes } from './actions';
 
 const initialState = {
   history: [{ squares: Array(9).fill(null), step: 'step0' }],

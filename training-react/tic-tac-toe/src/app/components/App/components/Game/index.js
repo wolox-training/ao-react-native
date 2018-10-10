@@ -1,28 +1,23 @@
-import { calculateWinner } from '@consts/game';
+import { calculateWinner } from '@utils/utils';
 import React from 'react';
 import { connect } from 'react-redux';
-import { jumpToStep, clickSquare } from '@redux/game/actions';
+import actionCreators from '@redux/game/actions';
 import { string, func, arrayOf, shape, number, bool } from 'prop-types';
 
-import Board from './components/Board';
-import style from './styles.scss';
-import Moves from './components/Moves';
+import Game from './layout';
 
-const Game = ({ history, stepNumber, xIsNext, handleClick, jumpTo }) => {
+const GameContainer = ({ history, stepNumber, xIsNext, handleClick, jumpTo }) => {
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
-
   const status = winner ? `Winner: ${winner}` : `Next player: ${xIsNext ? 'X' : 'O'}`;
   return (
-    <div className={style.game}>
-      <div>
-        <Board squares={current.squares} onClick={handleClick} />
-      </div>
-      <div className={style.gameInfo}>
-        <div>{status}</div>
-        {<Moves history={history} jump={jumpTo} />}
-      </div>
-    </div>
+    <Game
+      history={history}
+      squares={current.squares}
+      onClick={handleClick}
+      status={status}
+      jumpToStep={jumpTo}
+    />
   );
 };
 
@@ -33,15 +28,15 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  jumpTo: step => dispatch(jumpToStep(step)),
-  handleClick: i => dispatch(clickSquare(i))
+  jumpTo: step => dispatch(actionCreators.jumpToStep(step)),
+  handleClick: i => dispatch(actionCreators.clickSquare(i))
 });
 
-Game.propTypes = {
+GameContainer.propTypes = {
   history: arrayOf(
     shape({
       squares: arrayOf(string)
-    })
+    }).isRequired
   ),
   xIsNext: bool.isRequired,
   stepNumber: number.isRequired,
@@ -52,4 +47,4 @@ Game.propTypes = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Game);
+)(GameContainer);
