@@ -11,7 +11,8 @@
         "@redux": "./src/redux",
         "@consts": "./src/constants",
         "@variables": "./src/scss/variables",
-        "@utils": "./src/utils"
+        "@utils": "./src/utils",
+        "@validations": "./src/validations"
       }
     }]
   ]
