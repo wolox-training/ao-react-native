@@ -1,0 +1,72 @@
+@import 'variables/colors';
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-login {
+  width: 100%;  
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: $color_purple_amethyst;
+  background: linear-gradient(-135deg, color_amethyst, color_blue_indigo);
+}
+
+.wrap-login {
+  width: 960px;
+  background: $color_white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 177px 130px 33px 95px;
+}
+
+.login-pic {
+  width: 316px;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.login-form {
+  width: 290px;
+
+  &-title {
+    font-family: Poppins-Bold;
+    font-size: 24px;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding-bottom: 54px;
+  }
+}
+
+.wrap-input-login {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+.input-login {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  line-height: 1.5;
+  color: $color_gray_dove;
+  display: block;
+  width: 100%;
+  background: $color_gray_mercury;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px;
+}
