@@ -12,7 +12,8 @@
         "@services": "./src/services",
         "@consts": "./src/constants",
         "@utils": "./src/utils",
-        "@validations": "./src/validations"
+        "@validations": "./src/validations",
+        "@assets": "./src/assets"
       }
     }]
   ]

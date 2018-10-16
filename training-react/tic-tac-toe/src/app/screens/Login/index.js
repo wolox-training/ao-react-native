@@ -5,7 +5,9 @@ import { func } from 'prop-types';
 
 import Layout from './layout';
 
-const login = ({ handleSubmit }) => <Layout onSubmit={handleSubmit} />;
+function login({ handleSubmit }) {
+  return <Layout onSubmit={handleSubmit} />;
+}
 
 login.propTypes = {
   handleSubmit: func.isRequired
