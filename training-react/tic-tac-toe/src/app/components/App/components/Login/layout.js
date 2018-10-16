@@ -1,12 +1,8 @@
-import imglogin from '@assets/images/img-01.png';
-
 import { required, minLength } from '@validations';
 
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { func } from 'prop-types';
-
-import { customInput } from '../Fields';
 
 import styles from './styles.scss';
 
@@ -14,27 +10,30 @@ class Login extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <section className={styles.limiter}>
-        <article className={styles.containerLogin}>
-          <div className={styles.wrapLogin}>
-            <div className={styles.loginPic}>
-              <img src={imglogin} alt="img-login" />
-            </div>
-            <form className={styles.loginForm} onSubmit={handleSubmit}>
-              <span className={styles.loginFormTitle}>Login</span>
-              <Field name="email" component={customInput} type="text" label="Email" validate={[required]} />
+      <section className={styles.loginPage}>
+        <div className={styles.form}>
+          <form className={styles.loginForm} onSubmit={handleSubmit}>
+            <div>
               <Field
-                name="password"
-                component={customInput}
+                component="input"
+                type="text"
+                placeholder="usuario"
+                name="username"
+                validate={[required]}
+              />
+            </div>
+            <div>
+              <Field
+                component="input"
                 type="password"
-                label="Contrase&ntilde;a"
+                placeholder="contrase&ntilde;a"
+                name="password"
                 validate={[required, minLength]}
               />
-
-              <button type="submit">Submit</button>
-            </form>
-          </div>
-        </article>
+            </div>
+            <button type="submit">login</button>
+          </form>
+        </div>
       </section>
     );
   }
@@ -44,8 +43,8 @@ Login.propTypes = {
   handleSubmit: func.isRequired
 };
 
-const LoginForm = reduxForm({
+const Form = reduxForm({
   form: 'register'
 })(Login);
 
-export default LoginForm;
+export default Form;

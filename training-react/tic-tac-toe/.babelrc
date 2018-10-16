@@ -10,8 +10,9 @@
         "@screens": "./src/app/screens",
         "@redux": "./src/redux",
         "@consts": "./src/constants",
-        "@variables": "./src/scss/variables",
-        "@utils": "./src/utils"
+        "@sass": "./src/scss",
+        "@utils": "./src/utils",
+        "@validations": "./src/validations"
       }
     }]
   ]
