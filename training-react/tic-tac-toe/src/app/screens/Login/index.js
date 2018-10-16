@@ -1,13 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import actionCreators from '@redux/login/actions';
+import { func } from 'prop-types';
 
 import Layout from './layout';
 
-const LoginContainer = () => <Layout />;
+const login = ({ handleSubmit }) => <Layout onSubmit={handleSubmit} />;
 
-/* const mapStateToProps = state => ({});
+login.propTypes = {
+  handleSubmit: func.isRequired
+};
 
-const mapDispatchToProps = dispatch => ({}); */
+const mapStateToProps = state => ({ ...state });
 
-export default connect(/* mapStateToProps,
-  mapDispatchToProps */)(LoginContainer);
+const mapDispatchToProps = dispatch => ({
+  handleSubmit: user => dispatch(actionCreators.authUser(user))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(login);

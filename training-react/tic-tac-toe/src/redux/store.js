@@ -2,8 +2,13 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 
+import game from './game/reducer';
+import login from './login/reducer';
+
 const reducers = {
-  form: formReducer
+  form: formReducer,
+  game,
+  login
 };
 
 /* eslint-disable no-underscore-dangle */

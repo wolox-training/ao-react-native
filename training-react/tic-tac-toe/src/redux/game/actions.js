@@ -1,13 +1,13 @@
 import { calculateWinner } from '@utils/utils';
 
 export const actionsTypes = {
-  jumpToStep: 'JUMP_TO_STEP',
-  clickSquare: 'CLICK_TO_SQUARE'
+  JUMP_TO_STEP: 'JUMP_TO_STEP',
+  CLICK_TO_SQUARE: 'CLICK_TO_SQUARE'
 };
 
 const actionCreators = {
   jumpToStep: step => ({
-    type: actionsTypes.jumpToStep,
+    type: actionsTypes.JUMP_TO_STEP,
     step
   }),
   clickSquare: i => (dispatch, getState) => {
@@ -25,7 +25,7 @@ const actionCreators = {
     squares[i] = xIsNext ? 'X' : 'O';
 
     dispatch({
-      type: actionsTypes.clickSquare,
+      type: actionsTypes.CLICK_TO_SQUARE,
       payload: {
         history: currentHistory.concat([{ squares, step }]),
         stepNumber: currentHistory.length,
