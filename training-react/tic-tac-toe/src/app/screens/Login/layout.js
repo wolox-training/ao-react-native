@@ -3,7 +3,7 @@ import { required, minLength, email } from '@validations';
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { func } from 'prop-types';
-import { customInput } from '@components/Fields';
+import customInput from '@components/Input';
 
 import style from './styles.scss';
 
