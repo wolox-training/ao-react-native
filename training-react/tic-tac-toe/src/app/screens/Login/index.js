@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Login from './layout';
+import Layout from './layout';
 
-const LoginContainer = () => <Login />;
+const LoginContainer = () => <Layout />;
 
 /* const mapStateToProps = state => ({});
 

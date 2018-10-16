@@ -1,0 +1,60 @@
+@import 'variables/colors';
+@import 'reusable/flexbox';
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  composes: d-flex j-center a-center;
+  width: 100%;
+  height: 100vh;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 450px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+  .img-login {
+    width: 80%;
+    margin-bottom: 16px;
+  }
+
+  button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: $blue_indigo;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: $purple_amethyst;
+    }
+  }
+}
+
+@keyframes grey-pulse {
+  0% {
+    border-color: gray;
+  }
+
+  50% {
+    border-color: #eee;
+  }
+
+  100% {
+    border-color: gray;
+  }
+}
