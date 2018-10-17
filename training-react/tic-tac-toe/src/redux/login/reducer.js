@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action) {
         msgError: '',
         tokenAuth: action.payload
       };
-    case actionsTypes.HAS_ERR_USER:
+    case actionsTypes.HAS_ERROR_USER:
       return {
         ...state,
         hasErrorAuth: true,

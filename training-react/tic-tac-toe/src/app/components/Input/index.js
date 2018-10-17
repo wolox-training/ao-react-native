@@ -13,9 +13,10 @@ const getValidityClassName = meta => {
 function CustomInput({ input, meta, type, placeholder }) {
   return (
     <div
-      className={`${style.customInputContainer} ${
-        meta.touched && meta.valid ? style.valid : ''
-      } ${getValidityClassName(meta)}`}
+      className={`
+      ${style.customInputContainer} 
+      ${meta.touched && meta.valid ? style.valid : ''}
+      ${getValidityClassName(meta)}`}
     >
       <input {...input} type={type} className={style.customInput} placeholder={placeholder} />
       {meta.error && meta.touched && !meta.active && <div className={style.errorText}>{meta.error}</div>}

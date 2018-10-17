@@ -2,7 +2,7 @@ import loginService from '@services/loginService';
 
 export const actionsTypes = {
   AUTH_USER: 'AUTH_USER',
-  HAS_ERR_USER: 'HAS_ERR_USER'
+  HAS_ERROR_USER: 'HAS_ERROR_USER'
 };
 
 const actionCreators = {
@@ -16,7 +16,7 @@ const actionCreators = {
       await loginService.setToken(token);
     }
     dispatch({
-      type: response.data.error ? actionsTypes.HAS_ERR_USER : actionsTypes.AUTH_USER,
+      type: response.data.error ? actionsTypes.HAS_ERROR_USER : actionsTypes.AUTH_USER,
       payload: response.data.error ? response.data.error.message : token
     });
   }
