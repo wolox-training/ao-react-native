@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 
 import style from './styles.scss';
 
@@ -14,7 +15,7 @@ const getValidityClassName = meta => {
   }
 };
 
-function customInput({ input, type, meta, placeholder }) {
+function CustomInput({ input, meta, type, placeholder }) {
   return (
     <div className={`${style.customInputContainer} ${getValidityClassName(meta)}`}>
       <input {...input} type={type} className={style.customInput} placeholder={placeholder} />
@@ -23,4 +24,9 @@ function customInput({ input, type, meta, placeholder }) {
   );
 }
 
-export default customInput;
+CustomInput.propTypes = {
+  type: string.isRequired,
+  placeholder: string
+};
+
+export default CustomInput;

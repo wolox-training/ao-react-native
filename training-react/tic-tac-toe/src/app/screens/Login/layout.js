@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { func, bool, string } from 'prop-types';
-import customInput from '@components/Input';
+import CustomInput from '@components/Input';
 
 import { required, minLength, email } from '@validations';
 
@@ -16,7 +16,7 @@ function Layout({ handleSubmit, hasError, msgError }) {
         <form onSubmit={handleSubmit}>
           <img className={style.imgLogin} src={logo} alt="Wolox Logo" />
           <Field
-            component={customInput}
+            component={CustomInput}
             type="text"
             placeholder="email"
             name="email"
@@ -24,7 +24,7 @@ function Layout({ handleSubmit, hasError, msgError }) {
           />
 
           <Field
-            component={customInput}
+            component={CustomInput}
             type="password"
             placeholder="password"
             name="password"
