@@ -13,9 +13,6 @@
   box-shadow: 0 0 20px 0 $gray_dove;
   max-width: 450px;
   padding: 45px;
-  position: relative;
-  text-align: center;
-  z-index: 1;
 
   .img-login {
     margin-bottom: 16px;
@@ -24,11 +21,8 @@
 
   .btn-login {
     background: $blue_indigo;
-    border: 0;
     color: $white;
-    cursor: pointer;
     font-size: 14px;
-    outline: 0;
     padding: 15px;
     text-transform: uppercase;
     transition: all 0.3 ease;
@@ -40,18 +34,10 @@
       background: $purple_amethyst;
     }
   }
-}
 
-@keyframes grey-pulse {
-  0% {
-    border-color: $gray_dove;
-  }
-
-  50% {
-    border-color: $gallery;
-  }
-
-  100% {
-    border-color: $gray_dove;
+  .message-error {
+    color: $red_ribbon;
+    font-weight: bold;
+    margin-top: 15px;
   }
 }

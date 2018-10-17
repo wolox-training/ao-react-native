@@ -6,7 +6,7 @@
   position: relative;
 
   .custom-input {
-    background: $concrete;
+    background-color: $concrete;
     border-bottom: 3px solid $blue_indigo;
     font-size: 14px;
     min-width: 355px;
@@ -43,12 +43,5 @@
       top: -8px;
       width: 0;
     }
-  }
-
-  .async-validating input {
-    animation-duration: 1.4s;
-    animation-iteration-count: infinite;
-    animation-name: grey-pulse;
-    border-color: $gray_mercury;
   }
 }

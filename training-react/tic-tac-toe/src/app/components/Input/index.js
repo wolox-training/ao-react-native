@@ -3,10 +3,6 @@ import React from 'react';
 import style from './styles.scss';
 
 const getValidityClassName = meta => {
-  if (meta.asyncValidating) {
-    return style.asyncValidating;
-  }
-
   if (meta.active) {
     return;
   }

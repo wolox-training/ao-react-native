@@ -1,14 +1,15 @@
-import { required, minLength, email } from '@validations';
-
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { func } from 'prop-types';
+import { func, bool, string } from 'prop-types';
 import customInput from '@components/Input';
+
+import { required, minLength, email } from '@validations';
+
 import logo from '@assets/images/img-wolox-logo.svg';
 
 import style from './styles.scss';
 
-function Layout({ handleSubmit }) {
+function Layout({ handleSubmit, hasError, msgError }) {
   return (
     <section className={style.loginPage}>
       <div className={style.form}>
@@ -32,6 +33,7 @@ function Layout({ handleSubmit }) {
           <button className={style.btnLogin} type="submit">
             login
           </button>
+          {hasError && <div className={style.messageError}>{msgError}</div>}
         </form>
       </div>
     </section>
@@ -39,7 +41,9 @@ function Layout({ handleSubmit }) {
 }
 
 Layout.propTypes = {
-  handleSubmit: func.isRequired
+  handleSubmit: func.isRequired,
+  hasError: bool.isRequired,
+  msgError: string.isRequired
 };
 
 export default reduxForm({ form: 'login' })(Layout);

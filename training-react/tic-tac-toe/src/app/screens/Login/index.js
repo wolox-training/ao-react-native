@@ -1,19 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import actionCreators from '@redux/login/actions';
-import { func } from 'prop-types';
+import { func, bool, string } from 'prop-types';
 
 import Layout from './layout';
 
-function login({ handleSubmit }) {
-  return <Layout onSubmit={handleSubmit} />;
+function Login({ handleSubmit, hasErrorAuth, msgError }) {
+  return <Layout onSubmit={handleSubmit} hasError={hasErrorAuth} msgError={msgError} />;
 }
 
-login.propTypes = {
-  handleSubmit: func.isRequired
+Login.propTypes = {
+  handleSubmit: func.isRequired,
+  hasErrorAuth: bool.isRequired,
+  msgError: string.isRequired
 };
 
-const mapStateToProps = state => ({ ...state });
+const mapStateToProps = state => ({
+  hasErrorAuth: state.login.hasErrorAuth,
+  msgError: state.login.msgError
+});
 
 const mapDispatchToProps = dispatch => ({
   handleSubmit: user => dispatch(actionCreators.authUser(user))
@@ -22,4 +27,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(login);
+)(Login);
