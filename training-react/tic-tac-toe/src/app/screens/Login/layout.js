@@ -22,7 +22,6 @@ function Layout({ handleSubmit, hasError, msgError }) {
             name="email"
             validate={[required, email]}
           />
-
           <Field
             component={CustomInput}
             type="password"
