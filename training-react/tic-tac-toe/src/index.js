@@ -1,4 +1,4 @@
-import App from '@screens/Login';
+import RouteCheck from '@components/RouteCheck';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import store from '@redux/store';
@@ -9,7 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <RouteCheck />
   </Provider>,
   document.getElementById('root')
 );

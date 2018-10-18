@@ -13,7 +13,7 @@ const actionCreators = {
     if (!response.data.error) {
       localStorage.setItem('userToken', token);
       localStorage.setItem('userId', response.data.userId);
-      await loginService.setToken(token);
+      loginService.setToken(token);
     }
     dispatch({
       type: response.data.error ? actionsTypes.HAS_ERROR_USER : actionsTypes.AUTH_USER,

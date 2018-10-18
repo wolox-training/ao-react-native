@@ -6,7 +6,7 @@ import { string, func, arrayOf, shape, number, bool } from 'prop-types';
 
 import Game from './layout';
 
-const GameContainer = ({ history, stepNumber, xIsNext, handleClick, jumpTo }) => {
+function GameContainer({ history, stepNumber, xIsNext, handleClick, jumpTo }) {
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
   const status = winner ? `Winner: ${winner}` : `Next player: ${xIsNext ? 'X' : 'O'}`;
@@ -19,7 +19,7 @@ const GameContainer = ({ history, stepNumber, xIsNext, handleClick, jumpTo }) =>
       jumpToStep={jumpTo}
     />
   );
-};
+}
 
 const mapStateToProps = state => ({
   history: state.game.history,
