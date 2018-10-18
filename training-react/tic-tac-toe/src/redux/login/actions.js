@@ -10,7 +10,7 @@ const actionCreators = {
     const params = { username: userData.email, password: userData.password };
     const response = await loginService.authUser(params);
     const token = response.data.id;
-    if (!response.data.error) {
+    if (response.ok) {
       localStorage.setItem('userToken', token);
       localStorage.setItem('userId', response.data.userId);
       await loginService.setToken(token);
