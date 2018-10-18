@@ -8,7 +8,7 @@ import style from './styles.scss';
 function Game({ history, squares, onClick, status, jumpToStep }) {
   return (
     <div className={style.game}>
-      <div>
+      <div className={style.board}>
         <Board squares={squares} onClick={onClick} />
       </div>
       <div className={style.gameInfo}>

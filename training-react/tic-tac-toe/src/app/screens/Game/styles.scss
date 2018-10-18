@@ -1,8 +1,18 @@
 .game {
+  align-items: center;
   display: flex;
-  flex-direction: row;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
 }
 
 .game-info {
   margin-left: 20px;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  height: 300px;
+  width: 300px;
 }

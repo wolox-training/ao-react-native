@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { arrayOf, string, func } from 'prop-types';
 
 import Square from './components/Square';
+import style from './styles.scss';
 
 class Board extends Component {
   renderSquare = i => {
@@ -12,18 +13,17 @@ class Board extends Component {
   render() {
     return (
       <Fragment>
-        <div>{status}</div>
-        <div>
+        <div className={style.lineSquares}>
           {this.renderSquare(0)}
           {this.renderSquare(1)}
           {this.renderSquare(2)}
         </div>
-        <div>
+        <div className={style.lineSquares}>
           {this.renderSquare(3)}
           {this.renderSquare(4)}
           {this.renderSquare(5)}
         </div>
-        <div>
+        <div className={style.lineSquares}>
           {this.renderSquare(6)}
           {this.renderSquare(7)}
           {this.renderSquare(8)}
