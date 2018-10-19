@@ -8,13 +8,13 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case actionsTypes.jumpToStep:
+    case actionsTypes.JUMP_TO_STEP:
       return {
         ...state,
         stepNumber: action.step,
         xIsNext: action.step % 2 === 0
       };
-    case actionsTypes.clickSquare:
+    case actionsTypes.CLICK_TO_SQUARE:
       return { ...state, ...action.payload };
     default:
       return state;

@@ -1,8 +1,9 @@
-body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
-}
+@import './settings/equalizer';
+@import './variables/colors';
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-ol, ul {
-  padding-left: 30px;
+body {
+  background: $purple_amethyst;
+  background: linear-gradient(-135deg, $purple_amethyst, $blue_indigo);
+  font-family: 'Roboto', sans-serif;
 }

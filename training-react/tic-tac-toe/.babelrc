@@ -9,9 +9,11 @@
         "@components": "./src/app/components",
         "@screens": "./src/app/screens",
         "@redux": "./src/redux",
+        "@services": "./src/services",
         "@consts": "./src/constants",
-        "@variables": "./src/scss/variables",
-        "@utils": "./src/utils"
+        "@utils": "./src/utils",
+        "@validations": "./src/validations",
+        "@assets": "./src/assets"
       }
     }]
   ]

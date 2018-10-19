@@ -1,4 +1,4 @@
-import App from '@components/App';
+import App from '@screens/Login';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import store from '@redux/store';
