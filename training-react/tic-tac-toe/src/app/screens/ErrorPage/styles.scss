@@ -1,0 +1,28 @@
+@import 'variables/colors';
+
+.container-pag-error {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+
+  .msg-error {
+    align-items: center;
+    background-color: $concrete;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 140px;
+    justify-content: center;
+    padding: 10px 20px;
+    text-align: center;
+    width: 300px;
+
+    .title-error {
+      color: $red_ribbon;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+}
