@@ -1,14 +1,12 @@
 import React, { PureComponent } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import LoginService from '@services/loginService';
 import ROUTES from '@consts/route';
 
 class ValidateRoute extends PureComponent {
   renderRoute = props => {
     const { isPrivate, component: Component, isLogedIn } = this.props;
     if (isLogedIn && !isPrivate) {
-      LoginService.setToken(localStorage.getItem('userToken'));
       return (
         <Redirect
           to={{
@@ -41,7 +39,4 @@ const mapStateToProps = state => ({
   isLogedIn: state.login.isLogedIn
 });
 
-export default connect(
-  mapStateToProps,
-  null
-)(ValidateRoute);
+export default connect(mapStateToProps)(ValidateRoute);

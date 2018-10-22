@@ -13,16 +13,19 @@
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
-    height: 140px;
     justify-content: center;
+    min-height: 140px;
     padding: 10px 20px;
-    text-align: center;
     width: 300px;
 
     .title-error {
-      color: $red_ribbon;
+      color: $red-ribbon;
       font-size: 25px;
       font-weight: bold;
+    }
+
+    .desc-error {
+      text-align: center;
     }
   }
 }

@@ -11,8 +11,8 @@ function RouteCheck() {
   return (
     <Router>
       <Switch>
-        <ValidateRoute isPrivate={false} exact path={ROUTES.LOGIN} component={Login} />
-        <ValidateRoute isPrivate path={ROUTES.GAME} component={Game} />
+        <ValidateRoute exact path={ROUTES.LOGIN} component={Login} />
+        <ValidateRoute isPrivate exact path={ROUTES.GAME} component={Game} />
         <Route component={ErrorPage} />
       </Switch>
     </Router>
