@@ -10,7 +10,7 @@
 
 .form {
   background: $white;
-  box-shadow: 0 0 20px 0 $gray_dove;
+  box-shadow: 0 0 20px 0 $gray-dove;
   max-width: 450px;
   padding: 45px;
 
@@ -20,7 +20,7 @@
   }
 
   .btn-login {
-    background: $blue_indigo;
+    background: $blue-indigo;
     color: $white;
     font-size: 14px;
     padding: 15px;
@@ -31,12 +31,12 @@
     &:hover,
     &:active,
     &:focus {
-      background: $purple_amethyst;
+      background: $purple-amethyst;
     }
   }
 
   .message-error {
-    color: $red_ribbon;
+    color: $red-ribbon;
     font-weight: bold;
     margin-top: 15px;
     text-align: center;

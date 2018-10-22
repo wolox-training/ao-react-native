@@ -5,17 +5,19 @@ import Board from './components/Board';
 import Moves from './components/Moves';
 import style from './styles.scss';
 
-const Game = ({ history, squares, onClick, status, jumpToStep }) => (
-  <div className={style.game}>
-    <div>
-      <Board squares={squares} onClick={onClick} />
+function Game({ history, squares, onClick, status, jumpToStep }) {
+  return (
+    <div className={style.game}>
+      <div className={style.board}>
+        <Board squares={squares} onClick={onClick} />
+      </div>
+      <div className={style.gameInfo}>
+        <div>{status}</div>
+        {<Moves history={history} jump={jumpToStep} />}
+      </div>
     </div>
-    <div className={style.gameInfo}>
-      <div>{status}</div>
-      {<Moves history={history} jump={jumpToStep} />}
-    </div>
-  </div>
-);
+  );
+}
 
 Game.propTypes = {
   history: arrayOf(

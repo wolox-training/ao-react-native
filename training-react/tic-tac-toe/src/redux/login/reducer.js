@@ -3,6 +3,7 @@ import { actionsTypes } from './actions';
 const initialState = {
   hasErrorAuth: false,
   msgError: '',
+  isLogedIn: !!localStorage.getItem('userToken'),
   tokenAuth: null
 };
 
@@ -13,7 +14,8 @@ export default function reducer(state = initialState, action) {
         ...state,
         hasErrorAuth: false,
         msgError: '',
-        tokenAuth: action.payload
+        tokenAuth: action.payload,
+        isLogedIn: true
       };
     case actionsTypes.HAS_ERROR_USER:
       return {
