@@ -12,8 +12,8 @@ import style from './styles.scss';
 function Layout({ handleSubmit, hasError, msgError }) {
   return (
     <section className={style.loginPage}>
-      <div className={style.form}>
-        <form onSubmit={handleSubmit}>
+      <div className={style.containerForm}>
+        <form className={style.formLogin} onSubmit={handleSubmit}>
           <img className={style.imgLogin} src={logo} alt="Wolox Logo" />
           <Field
             component={CustomInput}

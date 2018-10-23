@@ -23,6 +23,12 @@ export default function reducer(state = initialState, action) {
         hasErrorAuth: true,
         msgError: action.payload
       };
+    case actionsTypes.SIGN_OUT_USER:
+      return {
+        ...state,
+        isLogedIn: false,
+        tokenAuth: null
+      };
     default:
       return state;
   }

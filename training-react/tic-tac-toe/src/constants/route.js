@@ -1,5 +1,6 @@
 const ROUTES = {
   GAME: '/game',
+  PROFILE: '/profile',
   LOGIN: '/'
 };
 

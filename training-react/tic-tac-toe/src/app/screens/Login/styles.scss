@@ -8,11 +8,18 @@
   width: 100%;
 }
 
-.form {
+.container-form {
   background: $white;
-  box-shadow: 0 0 20px 0 $gray-dove;
+  box-shadow: 0 0 8px 0 $dusty-gray;
   max-width: 450px;
   padding: 45px;
+
+  .form-login {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
   .img-login {
     margin-bottom: 16px;
@@ -31,7 +38,7 @@
     &:hover,
     &:active,
     &:focus {
-      background: $purple-amethyst;
+      background: $apple;
     }
   }
 
