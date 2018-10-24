@@ -8,7 +8,7 @@ import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './styles.scss';
 
-function Layout({ onClick }) {
+function Layout({ handleClick }) {
   return (
     <nav className={styles.header}>
       <div className={styles.menuHeader}>
@@ -22,7 +22,7 @@ function Layout({ onClick }) {
         </div>
       </div>
       <div className={styles.optionsHeader}>
-        <button className={styles.buttonSignOut} onClick={onClick}>
+        <button className={styles.buttonSignOut} onClick={handleClick}>
           <FontAwesomeIcon icon={faSignOutAlt} />
         </button>
       </div>
@@ -31,7 +31,7 @@ function Layout({ onClick }) {
 }
 
 Layout.propTypes = {
-  onClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired
 };
 
 export default Layout;

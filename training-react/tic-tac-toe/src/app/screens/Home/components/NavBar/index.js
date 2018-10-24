@@ -6,7 +6,7 @@ import ActionCreators from '@redux/login/actions';
 import Layout from './layout';
 
 function NavBar({ signOutUser }) {
-  return <Layout onClick={signOutUser} />;
+  return <Layout handleClick={signOutUser} />;
 }
 
 NavBar.propTypes = {
