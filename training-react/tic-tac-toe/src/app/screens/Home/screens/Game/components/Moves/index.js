@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { arrayOf, func, shape, string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Step from './components/Step';
 
@@ -16,12 +16,12 @@ class Moves extends Component {
 }
 
 Moves.propTypes = {
-  history: arrayOf(
-    shape({
-      squares: arrayOf(string)
+  history: PropTypes.arrayOf(
+    PropTypes.shape({
+      squares: PropTypes.arrayOf(PropTypes.string)
     })
   ).isRequired,
-  jump: func.isRequired
+  jump: PropTypes.func.isRequired
 };
 
 export default Moves;
