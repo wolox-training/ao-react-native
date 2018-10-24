@@ -4,12 +4,12 @@ import ROUTES from '@consts/route';
 
 import Game from './screens/Game';
 import Profile from './screens/Profile';
-import Header from './components/Header';
+import NavBar from './components/NavBar';
 
 function Home() {
   return (
     <Fragment>
-      <Header />
+      <NavBar />
       <Switch>
         <Route path={ROUTES.GAME} component={Game} />
         <Route path={ROUTES.PROFILE} component={Profile} />

@@ -10,31 +10,29 @@ import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './styles.scss';
 
-function Header({ signOutUser }) {
+function NavBar({ signOutUser }) {
   return (
-    <header className={styles.header}>
+    <nav className={styles.header}>
       <div className={styles.menuHeader}>
-        <div className={styles.logo}>
-          <Link to={ROUTES.GAME}>
-            <img className={styles.imgLogo} src={logo} alt="Wolox Logo" />
-          </Link>
-        </div>
-        <nav className={styles.navBar}>
+        <Link className={styles.logo} to={ROUTES.GAME}>
+          <img className={styles.imgLogo} src={logo} alt="Wolox Logo" />
+        </Link>
+        <div className={styles.containerLinks}>
           <Link className={styles.link} to={ROUTES.PROFILE}>
             PROFILE
           </Link>
-        </nav>
+        </div>
       </div>
       <div className={styles.optionsHeader}>
         <button className={styles.buttonSignOut} onClick={signOutUser}>
           <FontAwesomeIcon icon={faSignOutAlt} />
         </button>
       </div>
-    </header>
+    </nav>
   );
 }
 
-Header.propTypes = {
+NavBar.propTypes = {
   signOutUser: func.isRequired
 };
 
@@ -45,4 +43,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(Header);
+)(NavBar);
