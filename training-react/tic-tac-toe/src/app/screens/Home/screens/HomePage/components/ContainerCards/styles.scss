@@ -1,0 +1,72 @@
+@import 'variables/colors';
+
+.container-cards {
+  align-items: center;
+  background-color: $concrete;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+
+  .card {
+    align-items: center;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: 2s;
+    animation-timing-function: ease-in-out;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 1px $blue-indigo;
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+    justify-content: center;
+    margin: 10px;
+    width: 200px;
+
+    &:hover {
+      animation-name: bounce;
+      box-shadow: 0 0 8px 1px $apple;
+
+      .icon-card,
+      .title-card {
+        color: $apple;
+      }
+    }
+
+    .icon-card {
+      color: $blue-indigo;
+      height: 50%;
+      width: 100%;
+    }
+
+    .title-card {
+      color: $blue-indigo;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  60% {
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}

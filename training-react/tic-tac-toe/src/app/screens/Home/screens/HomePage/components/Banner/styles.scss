@@ -1,0 +1,22 @@
+@import 'variables/colors';
+
+.banner-home {
+  align-items: center;
+  background-color: $blue-indigo;
+  display: flex;
+  justify-content: center;
+  max-height: 400px;
+  max-width: 100%;
+  width: 100%;
+
+  &:hover {
+    background-color: $apple;
+    transition: background-color 3s ease;
+  }
+
+  .title-banner {
+    color: $concrete;
+    font-size: 30px;
+    text-align: center;
+  }
+}
