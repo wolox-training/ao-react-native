@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { func, bool, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import CustomInput from '@components/Input';
 
 import { required, minLength, email } from '@validations';
@@ -40,9 +40,9 @@ function Layout({ handleSubmit, hasError, msgError }) {
 }
 
 Layout.propTypes = {
-  handleSubmit: func.isRequired,
-  hasError: bool.isRequired,
-  msgError: string.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  hasError: PropTypes.bool.isRequired,
+  msgError: PropTypes.string.isRequired
 };
 
 export default reduxForm({ form: 'login' })(Layout);

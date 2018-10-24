@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import actionCreators from '@redux/login/actions';
-import { func, bool, string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Layout from './layout';
 
@@ -10,9 +10,9 @@ function Login({ handleSubmit, hasErrorAuth, msgError }) {
 }
 
 Login.propTypes = {
-  handleSubmit: func.isRequired,
-  hasErrorAuth: bool.isRequired,
-  msgError: string.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  hasErrorAuth: PropTypes.bool.isRequired,
+  msgError: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
