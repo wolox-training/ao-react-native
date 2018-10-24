@@ -1,13 +1,9 @@
 import React from 'react';
 
-import styles from './styles.scss';
+import Layout from './layout';
 
 function Profile() {
-  return (
-    <section className={styles.profile}>
-      <h1> Profile View</h1>
-    </section>
-  );
+  return <Layout />;
 }
 
 export default Profile;

@@ -1,3 +1,5 @@
+@import 'variables/colors';
+
 .profile {
   align-items: center;
   display: flex;
@@ -5,4 +7,23 @@
   justify-content: center;
   margin-top: 80px;
   width: 100%;
+
+  .container-form {
+    background-color: aliceblue;
+    border-radius: 5px;
+    box-shadow: 0 0 6px 0 $dusty-gray;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+    width: 100%;
+
+    .container-user-img {
+      width: 100%;
+    }
+
+    .form-profile {
+      width: 100%;
+    }
+  }
 }
