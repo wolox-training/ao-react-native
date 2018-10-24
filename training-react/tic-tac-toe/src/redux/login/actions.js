@@ -2,7 +2,8 @@ import loginService from '@services/loginService';
 
 export const actionsTypes = {
   AUTH_USER: 'AUTH_USER',
-  HAS_ERROR_USER: 'HAS_ERROR_USER'
+  HAS_ERROR_USER: 'HAS_ERROR_USER',
+  SIGN_OUT_USER: 'SIGN_OUT_USER'
 };
 
 const actionCreators = {
@@ -18,6 +19,12 @@ const actionCreators = {
     dispatch({
       type: response.data.error ? actionsTypes.HAS_ERROR_USER : actionsTypes.AUTH_USER,
       payload: response.data.error ? response.data.error.message : token
+    });
+  },
+  signOutUser: () => dispatch => {
+    localStorage.clear();
+    dispatch({
+      type: actionsTypes.SIGN_OUT_USER
     });
   }
 };

@@ -2,8 +2,13 @@
 @import './variables/colors';
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  background: $purple-amethyst;
-  background: linear-gradient(-135deg, $purple-amethyst, $blue-indigo);
   font-family: 'Roboto', sans-serif;
 }

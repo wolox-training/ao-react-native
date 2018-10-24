@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import style from './styles.scss';
 
@@ -25,8 +25,8 @@ function CustomInput({ input, meta, type, placeholder }) {
 }
 
 CustomInput.propTypes = {
-  type: string.isRequired,
-  placeholder: string
+  type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string
 };
 
 export default CustomInput;

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { string, func, number } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import styles from './styles.scss';
 
@@ -20,9 +20,9 @@ class Square extends PureComponent {
 }
 
 Square.propTypes = {
-  value: string,
-  onClick: func.isRequired,
-  position: number.isRequired
+  value: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  position: PropTypes.number.isRequired
 };
 
 export default Square;

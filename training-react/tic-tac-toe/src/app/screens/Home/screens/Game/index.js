@@ -2,7 +2,7 @@ import { calculateWinner } from '@utils/utils';
 import React from 'react';
 import { connect } from 'react-redux';
 import actionCreators from '@redux/game/actions';
-import { string, func, arrayOf, shape, number, bool } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Game from './layout';
 
@@ -33,15 +33,15 @@ const mapDispatchToProps = dispatch => ({
 });
 
 GameContainer.propTypes = {
-  history: arrayOf(
-    shape({
-      squares: arrayOf(string)
+  history: PropTypes.arrayOf(
+    PropTypes.shape({
+      squares: PropTypes.arrayOf(PropTypes.string)
     }).isRequired
   ),
-  xIsNext: bool.isRequired,
-  stepNumber: number.isRequired,
-  jumpTo: func.isRequired,
-  handleClick: func.isRequired
+  xIsNext: PropTypes.bool.isRequired,
+  stepNumber: PropTypes.number.isRequired,
+  jumpTo: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired
 };
 
 export default connect(

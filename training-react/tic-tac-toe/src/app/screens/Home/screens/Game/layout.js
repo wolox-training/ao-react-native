@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, func, arrayOf, shape } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Board from './components/Board';
 import Moves from './components/Moves';
@@ -20,15 +20,15 @@ function Game({ history, squares, onClick, status, jumpToStep }) {
 }
 
 Game.propTypes = {
-  history: arrayOf(
-    shape({
-      squares: arrayOf(string)
+  history: PropTypes.arrayOf(
+    PropTypes.shape({
+      squares: PropTypes.arrayOf(PropTypes.string)
     }).isRequired
   ),
-  squares: arrayOf(string).isRequired,
-  status: string.isRequired,
-  jumpToStep: func.isRequired,
-  onClick: func.isRequired
+  squares: PropTypes.arrayOf(PropTypes.string).isRequired,
+  status: PropTypes.string.isRequired,
+  jumpToStep: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default Game;

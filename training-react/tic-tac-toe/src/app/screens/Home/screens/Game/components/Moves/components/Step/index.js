@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { func, number } from 'prop-types';
+import PropTypes from 'prop-types';
 
 class Step extends PureComponent {
   handleClick = () => {
@@ -18,8 +18,8 @@ class Step extends PureComponent {
 }
 
 Step.propTypes = {
-  onClick: func.isRequired,
-  move: number.isRequired
+  onClick: PropTypes.func.isRequired,
+  move: PropTypes.number.isRequired
 };
 
 export default Step;
