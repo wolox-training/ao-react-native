@@ -14,10 +14,16 @@ function NavBar({ signOutUser }) {
   return (
     <nav className={styles.header}>
       <div className={styles.menuHeader}>
-        <Link className={styles.logo} to={ROUTES.GAME}>
+        <Link className={styles.logo} to={ROUTES.HOME}>
           <img className={styles.imgLogo} src={logo} alt="Wolox Logo" />
         </Link>
         <div className={styles.containerLinks}>
+          <Link className={styles.link} to={ROUTES.HOME}>
+            HOME
+          </Link>
+          <Link className={styles.link} to={ROUTES.GAME}>
+            GAME
+          </Link>
           <Link className={styles.link} to={ROUTES.PROFILE}>
             PROFILE
           </Link>
