@@ -12,7 +12,7 @@ function Layout({ handleSubmit }) {
     <section className={styles.profile}>
       <article className={styles.containerForm}>
         <div className={styles.containerUserImg}>
-          <FontAwesomeIcon className={styles.iconCard} icon={faUser} />
+          <FontAwesomeIcon className={styles.iconUser} icon={faUser} />
         </div>
         <form className={styles.formProfile} onSubmit={handleSubmit}>
           <Field
