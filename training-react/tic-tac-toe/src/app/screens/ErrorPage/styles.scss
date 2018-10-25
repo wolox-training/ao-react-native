@@ -6,26 +6,26 @@
   height: 100vh;
   justify-content: center;
   width: 100vw;
+}
 
-  .msg-error {
-    align-items: center;
-    background-color: $concrete;
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    min-height: 140px;
-    padding: 10px 20px;
-    width: 300px;
+.msg-error {
+  align-items: center;
+  background-color: $concrete;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 140px;
+  padding: 10px 20px;
+  width: 300px;
+}
 
-    .title-error {
-      color: $red-ribbon;
-      font-size: 25px;
-      font-weight: bold;
-    }
+.title-error {
+  color: $red-ribbon;
+  font-size: 25px;
+  font-weight: bold;
+}
 
-    .desc-error {
-      text-align: center;
-    }
-  }
+.desc-error {
+  text-align: center;
 }

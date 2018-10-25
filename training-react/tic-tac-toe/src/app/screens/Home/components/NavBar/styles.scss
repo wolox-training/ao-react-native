@@ -11,63 +11,63 @@
   position: fixed;
   top: 0;
   width: 100%;
+}
 
-  .menu-header {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: space-between;
+.menu-header {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+}
 
-    .logo {
-      max-width: 250px;
-      width: 30%;
+.logo {
+  max-width: 250px;
+  width: 30%;
+}
 
-      .img-logo {
-        height: auto;
-        width: 100%;;
-      }
-    }
+.img-logo {
+  height: auto;
+  width: 100%;
+}
 
-    .container-links {
-      align-items: center;
-      display: flex;
-      flex-grow: 1;
-      flex-wrap: wrap;
-      height: 100%;
-      margin-left: 4%;
+.container-links {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  height: 100%;
+  margin-left: 4%;
+}
 
-      .link {
-        align-items: center;
-        border-bottom: 5px solid $blue-indigo;
-        color: $blue-indigo;
-        display: flex;
-        font-size: 17px;
-        font-weight: bold;
-        justify-content: center;
-        margin: 0 8px;
-        min-height: 100%;
-        min-width: 80px;
+.link {
+  align-items: center;
+  border-bottom: 5px solid $blue-indigo;
+  color: $blue-indigo;
+  display: flex;
+  font-size: 17px;
+  font-weight: bold;
+  justify-content: center;
+  margin: 0 8px;
+  min-height: 100%;
+  min-width: 80px;
 
-        &:hover {
-          border-color: $apple;
-          color: $apple;
-        }
-      }
-    }
+  &:hover {
+    border-color: $apple;
+    color: $apple;
   }
+}
 
-  .options-header {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+.options-header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 
-    .button-sign-out {
-      color: $blue-indigo;
-      font-size: 25px;
+.button-sign-out {
+  color: $blue-indigo;
+  font-size: 25px;
 
-      :hover {
-        color: $apple;
-      }
-    }
+  :hover {
+    color: $apple;
   }
 }

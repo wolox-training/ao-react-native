@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './styles.scss';
 
-function BannerHome() {
+function Banner() {
   return (
     <article className={styles.bannerHome}>
       <h1 className={styles.titleBanner}>Welcome to my Training React App</h1>
@@ -10,4 +10,4 @@ function BannerHome() {
   );
 }
 
-export default BannerHome;
+export default Banner;
