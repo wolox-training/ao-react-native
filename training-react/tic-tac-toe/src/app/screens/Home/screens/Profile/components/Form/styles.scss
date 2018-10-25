@@ -1,0 +1,53 @@
+@import 'variables/colors';
+
+.form-profile {
+  width: 100%;
+}
+
+.prueba {
+  width: 50%;
+}
+
+.btn-login {
+  background: $blue-indigo;
+  color: $white;
+  font-size: 14px;
+  padding: 15px;
+  text-transform: uppercase;
+  transition: all 0.3 ease;
+  width: 100%;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $apple;
+  }
+}
+
+.container-user-img {
+  height: 100px;
+  margin-bottom: 30px;
+  width: 100px;
+
+  .icon-user {
+    color: $blue-indigo;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.success-update,
+.failure-update {
+  font-size: 20px;
+  margin-top: 15px;
+  text-align: center;
+  width: 100%;;
+}
+
+.success-update {
+  color: $apple;
+}
+
+.failure-update {
+  color: $red-ribbon;
+}
