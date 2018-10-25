@@ -4,6 +4,7 @@ import ROUTES from '@consts/route';
 
 import Game from './screens/Game';
 import Profile from './screens/Profile';
+import HomePage from './screens/HomePage';
 import NavBar from './components/NavBar';
 
 function Home() {
@@ -11,8 +12,9 @@ function Home() {
     <Fragment>
       <NavBar />
       <Switch>
-        <Route path={ROUTES.GAME} component={Game} />
-        <Route path={ROUTES.PROFILE} component={Profile} />
+        <Route exact path={ROUTES.HOME} component={HomePage} />
+        <Route exact path={ROUTES.GAME} component={Game} />
+        <Route exact path={ROUTES.PROFILE} component={Profile} />
       </Switch>
     </Fragment>
   );

@@ -10,7 +10,7 @@ class ValidateRoute extends PureComponent {
       return (
         <Redirect
           to={{
-            pathname: ROUTES.GAME,
+            pathname: ROUTES.HOME,
             state: { from: props.location }
           }}
         />

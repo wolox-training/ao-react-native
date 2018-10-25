@@ -8,18 +8,24 @@ export const actionsTypes = {
 
 const actionCreators = {
   authUser: userData => async dispatch => {
+    let token;
     const params = { username: userData.email, password: userData.password };
     const response = await loginService.authUser(params);
-    const token = response.data.id;
     if (response.ok) {
+      token = response.data.id;
       localStorage.setItem('userToken', token);
       localStorage.setItem('userId', response.data.userId);
       loginService.setToken(token);
+      dispatch({
+        type: actionsTypes.AUTH_USER,
+        payload: token
+      });
+    } else {
+      dispatch({
+        type: actionsTypes.HAS_ERROR_USER,
+        payload: 'LOGIN FAILED'
+      });
     }
-    dispatch({
-      type: response.data.error ? actionsTypes.HAS_ERROR_USER : actionsTypes.AUTH_USER,
-      payload: response.data.error ? response.data.error.message : token
-    });
   },
   signOutUser: () => dispatch => {
     localStorage.clear();
