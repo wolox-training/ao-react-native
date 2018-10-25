@@ -12,6 +12,10 @@ class Profile extends Component {
     getUser(idUser);
   }
 
+  componentWillUnmount() {
+    this.props.clearState();
+  }
+
   render() {
     const { updateUser, infoUser, loaded, msgUpdate, hasError } = this.props;
     return (
@@ -37,7 +41,8 @@ Profile.propTypes = {
   }),
   loaded: PropTypes.bool.isRequired,
   msgUpdate: PropTypes.string.isRequired,
-  hasError: PropTypes.bool.isRequired
+  hasError: PropTypes.bool.isRequired,
+  clearState: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -49,7 +54,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   updateUser: params => dispatch(actionCreators.updateUser(params)),
-  getUser: id => dispatch(actionCreators.getUser(id))
+  getUser: id => dispatch(actionCreators.getUser(id)),
+  clearState: () => dispatch(actionCreators.clearState())
 });
 
 export default connect(

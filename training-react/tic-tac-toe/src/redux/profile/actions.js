@@ -4,7 +4,8 @@ export const actionsTypes = {
   UPDATE_USER_SUCCESS: 'UPDATE_USER',
   UPDATE_USER_ERROR: 'UPDATE_USER_ERROR',
   GET_USER: 'GET_USER',
-  LOADING: 'LOADING'
+  LOADING: 'LOADING',
+  CLEAR_STATE: 'CLEAR_STATE'
 };
 
 const actionCreators = {
@@ -38,7 +39,10 @@ const actionCreators = {
       }
     });
     dispatch({ type: actionsTypes.LOADING, payload: { loaded: true } });
-  }
+  },
+  clearState: () => ({
+    type: actionsTypes.CLEAR_STATE
+  })
 };
 
 export default actionCreators;

@@ -17,6 +17,7 @@ export default function reducer(state = initialState, action) {
     case actionsTypes.UPDATE_USER_SUCCESS:
       return {
         ...state,
+        hasError: false,
         msgUpdate: action.payload
       };
     case actionsTypes.UPDATE_USER_ERROR:
@@ -35,6 +36,19 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         ...action.payload
+      };
+    case actionsTypes.CLEAR_STATE:
+      return {
+        ...state,
+        info: {
+          firstname: '',
+          surname: '',
+          email: '',
+          address: ''
+        },
+        loaded: false,
+        msgUpdate: '',
+        hasError: false
       };
     default:
       return state;
