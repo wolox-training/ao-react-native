@@ -16,7 +16,7 @@ function Form({ handleSubmit, msgUpdate, hasError }) {
       <form className={styles.formProfile} onSubmit={handleSubmit}>
         <Field component={CustomInput} type="text" placeholder="First Name" name="firstname" />
         <Field component={CustomInput} type="text" placeholder="Surname" name="surname" />
-        <Field component={CustomInput} type="text" placeholder="Email" name="email" />
+        <Field component={CustomInput} type="text" placeholder="Email" name="username" />
         <Field component={CustomInput} type="text" placeholder="Address" name="address" />
         <button className={styles.btnLogin} type="submit">
           update

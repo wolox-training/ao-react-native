@@ -22,7 +22,7 @@ Layout.propTypes = {
   infoUser: PropTypes.shape({
     firstname: PropTypes.string,
     surname: PropTypes.string,
-    email: PropTypes.string,
+    username: PropTypes.string,
     address: PropTypes.string
   }).isRequired,
   msgUpdate: PropTypes.string.isRequired,

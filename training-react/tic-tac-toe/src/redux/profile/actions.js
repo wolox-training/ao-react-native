@@ -33,7 +33,7 @@ const actionCreators = {
         info: {
           firstname: response.data.firstname,
           surname: response.data.surname,
-          email: response.data.username,
+          username: response.data.username,
           address: response.data.address
         }
       }

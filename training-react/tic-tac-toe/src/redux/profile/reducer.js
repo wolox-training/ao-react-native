@@ -4,7 +4,7 @@ const initialState = {
   info: {
     firstname: '',
     surname: '',
-    email: '',
+    username: '',
     address: ''
   },
   loaded: false,
