@@ -16,14 +16,16 @@ const actionCreators = {
       localStorage.setItem('userToken', token);
       localStorage.setItem('userId', response.data.userId);
       loginService.setToken(token);
+      dispatch({
+        type: actionsTypes.AUTH_USER,
+        payload: token
+      });
+    } else {
+      dispatch({
+        type: actionsTypes.HAS_ERROR_USER,
+        payload: 'LOGIN FAILED'
+      });
     }
-    dispatch({
-      type:
-        response.status === 200 || response.status === 201
-          ? actionsTypes.AUTH_USER
-          : actionsTypes.HAS_ERROR_USER,
-      payload: response.status === 200 || response.status === 201 ? token : 'LOGIN FAILED'
-    });
   },
   signOutUser: () => dispatch => {
     localStorage.clear();

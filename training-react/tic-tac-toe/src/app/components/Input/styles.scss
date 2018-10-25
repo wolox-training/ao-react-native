@@ -5,15 +5,6 @@
   margin-bottom: 15px;
   position: relative;
 
-  .custom-input {
-    background-color: $concrete;
-    border-bottom: 3px solid $blue-indigo;
-    font-size: 14px;
-    min-width: 355px;
-    padding: 15px;
-    width: 100%;
-  }
-
   &.valid {
     .custom-input {
       border-color: $apple;
@@ -25,23 +16,32 @@
       border-color: $red-ribbon;
     }
   }
+}
 
-  .error-text {
-    background-color: $red-ribbon;
-    color: $white;
-    margin-top: 10px;
-    position: relative;
+.custom-input {
+  background-color: $concrete;
+  border-bottom: 3px solid $blue-indigo;
+  font-size: 14px;
+  min-width: 355px;
+  padding: 15px;
+  width: 100%;
+}
 
-    &::before {
-      border-color: transparent transparent $red-ribbon transparent;
-      border-style: solid;
-      border-width: 0 8px 8px 7px;
-      content: '';
-      height: 0;
-      left: 20px;
-      position: absolute;
-      top: -8px;
-      width: 0;
-    }
+.error-text {
+  background-color: $red-ribbon;
+  color: $white;
+  margin-top: 10px;
+  position: relative;
+
+  &::before {
+    border-color: transparent transparent $red-ribbon transparent;
+    border-style: solid;
+    border-width: 0 8px 8px 7px;
+    content: '';
+    height: 0;
+    left: 20px;
+    position: absolute;
+    top: -8px;
+    width: 0;
   }
 }
