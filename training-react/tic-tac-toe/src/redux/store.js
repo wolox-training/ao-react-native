@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 
 import game from './game/reducer';
 import login from './login/reducer';
+import profile from './profile/reducer';
 
 const reducers = {
   form: formReducer,
   game,
-  login
+  login,
+  profile
 };
 
 /* eslint-disable no-underscore-dangle */

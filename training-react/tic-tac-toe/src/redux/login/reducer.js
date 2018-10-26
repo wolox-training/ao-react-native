@@ -4,7 +4,8 @@ const initialState = {
   hasErrorAuth: false,
   msgError: '',
   isLogedIn: !!localStorage.getItem('userToken'),
-  tokenAuth: null
+  tokenAuth: localStorage.getItem('userToken'),
+  loading: true
 };
 
 export default function reducer(state = initialState, action) {
@@ -28,6 +29,11 @@ export default function reducer(state = initialState, action) {
         ...state,
         isLogedIn: false,
         tokenAuth: null
+      };
+    case actionsTypes.VALIDATE_IS_LOGIN:
+      return {
+        ...state,
+        loading: false
       };
     default:
       return state;
