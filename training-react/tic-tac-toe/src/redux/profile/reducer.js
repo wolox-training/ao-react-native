@@ -29,9 +29,7 @@ export default function reducer(state = initialState, action) {
     case actionsTypes.GET_USER:
       return {
         ...state,
-        info: {
-          ...action.payload
-        }
+        info: action.payload
       };
 
     case actionsTypes.LOADING:
