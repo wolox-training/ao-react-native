@@ -11,8 +11,7 @@ import ValidateRoute from './components/ValidateRoute';
 
 class RouteCheck extends Component {
   componentDidMount() {
-    const { validateIsLogin } = this.props;
-    validateIsLogin();
+    this.props.validateIsLogin();
   }
 
   render() {

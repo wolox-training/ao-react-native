@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const infoUserProptype = PropTypes.shape({
+export const infoUserPropType = PropTypes.shape({
   firstname: PropTypes.string,
   surname: PropTypes.string,
   username: PropTypes.string,

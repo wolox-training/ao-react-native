@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { infoUserProptype } from '@consts/propTypes';
+import { infoUserPropType } from '@consts/propTypes';
 
 import Form from './components/Form';
 import styles from './styles.scss';
@@ -22,7 +22,7 @@ Layout.propTypes = {
   loaded: PropTypes.bool.isRequired,
   msgUpdate: PropTypes.string.isRequired,
   hasError: PropTypes.bool.isRequired,
-  infoUser: infoUserProptype
+  infoUser: infoUserPropType
 };
 
 export default Layout;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import actionCreators from '@redux/profile/actions';
-import { infoUserProptype } from '@consts/propTypes';
+import { infoUserPropType } from '@consts/propTypes';
 import PropTypes from 'prop-types';
 
 import Layout from './layout';
@@ -36,7 +36,7 @@ Profile.propTypes = {
   loaded: PropTypes.bool.isRequired,
   msgUpdate: PropTypes.string.isRequired,
   hasError: PropTypes.bool.isRequired,
-  infoUser: infoUserProptype
+  infoUser: infoUserPropType
 };
 
 const mapStateToProps = ({ profile }) => ({
