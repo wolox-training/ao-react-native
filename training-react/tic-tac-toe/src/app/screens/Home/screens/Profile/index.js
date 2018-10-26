@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import actionCreators from '@redux/profile/actions';
-import { infoUserPropType } from '@consts/propTypes';
+import { infoUserPropType } from '@propTypes/propTypes';
 import PropTypes from 'prop-types';
 
 import Layout from './layout';

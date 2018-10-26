@@ -4,6 +4,7 @@ import CustomInput from '@components/Input';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import formNames from '@consts/formNames';
 
 import styles from './styles.scss';
 
@@ -37,4 +38,4 @@ Form.propTypes = {
   hasError: PropTypes.bool.isRequired
 };
 
-export default reduxForm({ form: 'editProfile' })(Form);
+export default reduxForm({ form: formNames.editProfile })(Form);

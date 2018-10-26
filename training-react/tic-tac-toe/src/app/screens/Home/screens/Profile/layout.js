@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { infoUserPropType } from '@consts/propTypes';
+import { infoUserPropType } from '@propTypes/propTypes';
 
 import Form from './components/Form';
 import styles from './styles.scss';

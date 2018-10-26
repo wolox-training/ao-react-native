@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import CustomInput from '@components/Input';
+import formNames from '@consts/formNames';
 
 import { required, minLength, email } from '@validations';
 
@@ -45,4 +46,4 @@ Layout.propTypes = {
   msgError: PropTypes.string.isRequired
 };
 
-export default reduxForm({ form: 'login' })(Layout);
+export default reduxForm({ form: formNames.login })(Layout);
