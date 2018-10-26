@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import ROUTES from '@consts/route';
 import Home from '@screens/Home';
 import Login from '@screens/Login';
-import ErrorPage from '@screens/ErrorPage';
 import PropTypes from 'prop-types';
 import actionCreators from '@redux/login/actions';
 
@@ -24,7 +23,6 @@ class RouteCheck extends Component {
           <Switch>
             <ValidateRoute exact path={ROUTES.LOGIN} component={Login} />
             <ValidateRoute isPrivate component={Home} />
-            <Route component={ErrorPage} />
           </Switch>
         </Router>
       )

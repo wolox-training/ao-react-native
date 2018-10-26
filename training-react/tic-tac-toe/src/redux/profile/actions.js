@@ -24,21 +24,20 @@ const actionCreators = {
       });
     }
   },
-  getUser: id => async dispatch => {
-    dispatch({ type: actionsTypes.LOADING, payload: { loaded: false } });
-    const response = await services.getUser(id);
+  getUser: () => async dispatch => {
+    const idUser = localStorage.getItem('userId');
+    dispatch({ type: actionsTypes.LOADING, payload: false });
+    const response = await services.getUser(idUser);
     dispatch({
       type: actionsTypes.GET_USER,
       payload: {
-        info: {
-          firstname: response.data.firstname,
-          surname: response.data.surname,
-          username: response.data.username,
-          address: response.data.address
-        }
+        firstname: response.data.firstname,
+        surname: response.data.surname,
+        username: response.data.username,
+        address: response.data.address
       }
     });
-    dispatch({ type: actionsTypes.LOADING, payload: { loaded: true } });
+    dispatch({ type: actionsTypes.LOADING, payload: true });
   },
   clearState: () => ({
     type: actionsTypes.CLEAR_STATE
