@@ -18,7 +18,7 @@ function Form({ handleSubmit, msgUpdate, hasError }) {
         <Field component={CustomInput} type="text" placeholder="Surname" name="surname" />
         <Field component={CustomInput} type="text" placeholder="Email" name="username" />
         <Field component={CustomInput} type="text" placeholder="Address" name="address" />
-        <button className={styles.btnLogin} type="submit">
+        <button className={styles.btnUpdate} type="submit">
           update
         </button>
       </form>
