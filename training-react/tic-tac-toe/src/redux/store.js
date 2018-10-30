@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
+import { fetchMiddleware } from 'redux-recompose';
 
 import game from './game/reducer';
 import login from './login/reducer';
@@ -17,7 +18,7 @@ const reducers = {
 const store = createStore(
   combineReducers(reducers),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(thunk)
+  applyMiddleware(thunk, fetchMiddleware)
 );
 /* eslint-enable */
 

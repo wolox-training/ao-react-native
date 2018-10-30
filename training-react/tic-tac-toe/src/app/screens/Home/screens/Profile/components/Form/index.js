@@ -26,7 +26,7 @@ function Form({ handleSubmit, msgUpdate, hasError }) {
       {!hasError ? (
         <span className={styles.successUpdate}>{msgUpdate}</span>
       ) : (
-        <span className={styles.failureUpdate}>{msgUpdate}</span>
+        <span className={styles.failureUpdate}>Error in update user data</span>
       )}
     </Fragment>
   );
@@ -34,8 +34,8 @@ function Form({ handleSubmit, msgUpdate, hasError }) {
 
 Form.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  msgUpdate: PropTypes.string.isRequired,
-  hasError: PropTypes.bool.isRequired
+  msgUpdate: PropTypes.string,
+  hasError: PropTypes.bool
 };
 
 export default reduxForm({ form: formNames.editProfile })(Form);

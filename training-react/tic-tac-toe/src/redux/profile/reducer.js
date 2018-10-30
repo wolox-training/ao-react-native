@@ -1,56 +1,35 @@
+import { completeState, createReducer, completeReducer, onReadValue } from 'redux-recompose';
+
 import { actionsTypes } from './actions';
 
-const initialState = {
-  info: {
+const initialStateDescription = {
+  getUser: null,
+  updateUser: null,
+  isLoadedProfile: false,
+  infoUser: {
     firstname: '',
     surname: '',
     username: '',
     address: ''
-  },
-  loaded: false,
-  msgUpdate: '',
-  hasError: false
+  }
 };
 
-export default function reducer(state = initialState, action) {
-  switch (action.type) {
-    case actionsTypes.UPDATE_USER_SUCCESS:
-      return {
-        ...state,
-        hasError: false,
-        msgUpdate: action.payload
-      };
-    case actionsTypes.UPDATE_USER_ERROR:
-      return {
-        ...state,
-        msgUpdate: action.payload,
-        hasError: true
-      };
-    case actionsTypes.GET_USER:
-      return {
-        ...state,
-        info: action.payload
-      };
+const initialState = completeState(initialStateDescription, ['infoUser', 'isLoadedProfile']);
 
-    case actionsTypes.LOADING:
-      return {
-        ...state,
-        loaded: action.payload
-      };
-    case actionsTypes.CLEAR_STATE:
-      return {
-        ...state,
-        info: {
-          firstname: '',
-          surname: '',
-          email: '',
-          address: ''
-        },
-        loaded: false,
-        msgUpdate: '',
-        hasError: false
-      };
-    default:
-      return state;
+const reducerEffects = {
+  clearState: state => ({
+    ...state,
+    ...initialState
+  })
+};
+
+const reducerDescription = {
+  primaryActions: [actionsTypes.UPDATE_USER, actionsTypes.GET_USER],
+  override: {
+    [actionsTypes.CLEAR_STATE]: reducerEffects.clearState,
+    [actionsTypes.SET_INFO_USER]: onReadValue(),
+    [actionsTypes.IS_LOADED_PROFILE]: onReadValue()
   }
-}
+};
+
+export default createReducer(initialState, completeReducer(reducerDescription));

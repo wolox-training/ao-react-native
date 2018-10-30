@@ -1,44 +1,64 @@
+import { createTypes, completeTypes, withPostSuccess } from 'redux-recompose';
 import loginService from '@services/loginService';
 
-export const actionsTypes = {
-  AUTH_USER: 'AUTH_USER',
-  HAS_ERROR_USER: 'HAS_ERROR_USER',
-  SIGN_OUT_USER: 'SIGN_OUT_USER',
-  VALIDATE_IS_LOGIN: 'VALIDATE_IS_LOGIN'
+const target = {
+  IS_AUTH: 'isAuth',
+  APP_IS_LOADED: 'appIsLoaded'
 };
 
+const completedTypes = completeTypes(['AUTH_USER'], ['IS_LOADED_APP', 'SET_AUTH_STATE']);
+
+export const actionsTypes = createTypes(completedTypes, '@@LOGIN');
+
 const actionCreators = {
-  authUser: userData => async dispatch => {
-    let token;
-    const params = { username: userData.email, password: userData.password };
-    const response = await loginService.authUser(params);
-    if (response.ok) {
-      token = response.data.id;
-      localStorage.setItem('userToken', token);
-      localStorage.setItem('userId', response.data.userId);
+  authUser: userData => ({
+    type: actionsTypes.AUTH_USER,
+    target: target.AUTH,
+    service: loginService.authUser,
+    payload: { username: userData.email, password: userData.password },
+    injections: [
+      withPostSuccess((dispatch, response) => {
+        const token = response.data.id;
+        localStorage.setItem('userToken', token);
+        localStorage.setItem('userId', response.data.userId);
+        loginService.setToken(token);
+        dispatch({
+          type: actionsTypes.SET_AUTH_STATE,
+          target: target.IS_AUTH,
+          payload: !!token
+        });
+      })
+    ]
+  }),
+  logout: () => ({
+    type: actionsTypes.AUTH_USER,
+    target: target.AUTH,
+    service: loginService.logout,
+    injections: [
+      withPostSuccess(dispatch => {
+        localStorage.clear();
+        dispatch({
+          type: actionsTypes.SET_AUTH_STATE,
+          target: target.IS_AUTH,
+          payload: false
+        });
+      })
+    ]
+  }),
+  loadApp: () => dispatch => {
+    const token = localStorage.getItem('userToken');
+    if (token) {
       loginService.setToken(token);
       dispatch({
-        type: actionsTypes.AUTH_USER,
-        payload: token
-      });
-    } else {
-      dispatch({
-        type: actionsTypes.HAS_ERROR_USER,
-        payload: 'LOGIN FAILED'
+        type: actionsTypes.SET_AUTH_STATE,
+        target: target.IS_AUTH,
+        payload: !!token
       });
     }
-  },
-  signOutUser: () => dispatch => {
-    localStorage.clear();
     dispatch({
-      type: actionsTypes.SIGN_OUT_USER
-    });
-  },
-  validateIsLogin: () => async (dispatch, getState) => {
-    const { isLogedIn, tokenAuth } = getState().login;
-    if (isLogedIn) await loginService.setToken(tokenAuth);
-    dispatch({
-      type: actionsTypes.VALIDATE_IS_LOGIN
+      type: actionsTypes.IS_LOADED_APP,
+      target: target.APP_IS_LOADED,
+      payload: true
     });
   }
 };

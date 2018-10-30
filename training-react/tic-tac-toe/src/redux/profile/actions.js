@@ -1,44 +1,78 @@
-import services from '@services/profileService';
+import { createTypes, completeTypes, withPostSuccess, withSuccess, withFailure } from 'redux-recompose';
+import profileService from '@services/profileService';
 
-export const actionsTypes = {
-  UPDATE_USER_SUCCESS: 'UPDATE_USER',
-  UPDATE_USER_ERROR: 'UPDATE_USER_ERROR',
-  GET_USER: 'GET_USER',
-  LOADING: 'LOADING',
-  CLEAR_STATE: 'CLEAR_STATE'
+const target = {
+  UPDATE_USER: 'updateUser',
+  GET_USER: 'getUser',
+  INFO_USER: 'infoUser',
+  IS_LOADED_PROFILE: 'isLoadedProfile',
+  PROFILE: 'profile'
 };
 
+const completedTypes = completeTypes(
+  ['UPDATE_USER', 'GET_USER'],
+  ['CLEAR_STATE', 'SET_INFO_USER', 'IS_LOADED_PROFILE']
+);
+
+export const actionsTypes = createTypes(completedTypes, '@@PROFILE');
+
 const actionCreators = {
-  updateUser: params => async dispatch => {
-    const userId = localStorage.getItem('userId');
-    const response = await services.updateUser(userId, params);
-    if (response.ok) {
-      dispatch({
-        type: actionsTypes.UPDATE_USER_SUCCESS,
-        payload: 'Success update user data'
-      });
-    } else {
-      dispatch({
-        type: actionsTypes.UPDATE_USER_ERROR,
-        payload: 'Error in update user data'
-      });
-    }
-  },
-  getUser: () => async dispatch => {
-    const idUser = localStorage.getItem('userId');
-    dispatch({ type: actionsTypes.LOADING, payload: false });
-    const response = await services.getUser(idUser);
-    dispatch({
-      type: actionsTypes.GET_USER,
-      payload: {
-        firstname: response.data.firstname,
-        surname: response.data.surname,
-        username: response.data.username,
-        address: response.data.address
-      }
-    });
-    dispatch({ type: actionsTypes.LOADING, payload: true });
-  },
+  getUser: () => ({
+    type: actionsTypes.GET_USER,
+    target: target.GET_USER,
+    service: profileService.getUser,
+    injections: [
+      withPostSuccess((dispatch, response) => {
+        dispatch({
+          type: actionsTypes.SET_INFO_USER,
+          target: target.INFO_USER,
+          payload: {
+            firstname: response.data.firstname,
+            surname: response.data.surname,
+            username: response.data.username,
+            address: response.data.address
+          }
+        });
+        dispatch({
+          type: actionsTypes.IS_LOADED_PROFILE,
+          target: target.IS_LOADED_PROFILE,
+          payload: true
+        });
+      })
+    ]
+  }),
+  updateUser: userData => ({
+    type: actionsTypes.UPDATE_USER,
+    target: target.UPDATE_USER,
+    service: profileService.updateUser,
+    payload: userData,
+    injections: [
+      withSuccess(dispatch => {
+        dispatch({
+          type: actionsTypes.UPDATE_USER_SUCCESS,
+          target: target.UPDATE_USER,
+          payload: 'Succes update user data'
+        });
+        dispatch({
+          type: actionsTypes.UPDATE_USER,
+          target: target.UPDATE_USER,
+          payload: false
+        });
+      }),
+      withFailure(dispatch => {
+        dispatch({
+          type: actionsTypes.UPDATE_USER_FAILURE,
+          target: target.UPDATE_USER,
+          payload: true
+        });
+        dispatch({
+          type: actionsTypes.UPDATE_USER,
+          target: target.UPDATE_USER,
+          payload: false
+        });
+      })
+    ]
+  }),
   clearState: () => ({
     type: actionsTypes.CLEAR_STATE
   })

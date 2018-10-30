@@ -1,8 +1,14 @@
 import api from '../config/api';
 
 const profileService = {
-  getUser: id => api.get(`/Users/${id}`),
-  updateUser: (id, params) => api.patch(`/Users/${id}`, params)
+  getUser: () => {
+    const idUSer = localStorage.getItem('userId');
+    return api.get(`/Users/${idUSer}`);
+  },
+  updateUser: params => {
+    const idUSer = localStorage.getItem('userId');
+    return api.patch(`/Users/${idUSer}`, params);
+  }
 };
 
 export default profileService;
