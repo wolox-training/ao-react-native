@@ -3,8 +3,6 @@ import { completeState, createReducer, completeReducer, onReadValue } from 'redu
 import { actionsTypes } from './actions';
 
 const initialStateDescription = {
-  getUser: null,
-  updateUser: null,
   isLoadedProfile: false,
   isSuccessUpdate: false,
   infoUser: {

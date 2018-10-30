@@ -3,10 +3,11 @@ import loginService from '@services/loginService';
 
 const target = {
   IS_AUTH: 'isAuth',
-  APP_IS_LOADED: 'appIsLoaded'
+  APP_IS_LOADED: 'appIsLoaded',
+  ID_USER: 'idUser'
 };
 
-const completedTypes = completeTypes(['AUTH_USER'], ['IS_LOADED_APP', 'SET_AUTH_STATE']);
+const completedTypes = completeTypes(['AUTH_USER'], ['IS_LOADED_APP', 'SET_AUTH_STATE', 'SET_ID_USER']);
 
 export const actionsTypes = createTypes(completedTypes, '@@LOGIN');
 
@@ -19,13 +20,19 @@ const actionCreators = {
     injections: [
       withPostSuccess((dispatch, response) => {
         const token = response.data.id;
+        const idUser = response.data.userId;
         localStorage.setItem('userToken', token);
-        localStorage.setItem('userId', response.data.userId);
+        localStorage.setItem('userId', idUser);
         loginService.setToken(token);
         dispatch({
           type: actionsTypes.SET_AUTH_STATE,
           target: target.IS_AUTH,
           payload: !!token
+        });
+        dispatch({
+          type: actionsTypes.SET_ID_USER,
+          target: target.ID_USER,
+          payload: idUser
         });
       })
     ]
@@ -47,8 +54,14 @@ const actionCreators = {
   }),
   loadApp: () => dispatch => {
     const token = localStorage.getItem('userToken');
+    const idUser = localStorage.getItem('userId');
     if (token) {
       loginService.setToken(token);
+      dispatch({
+        type: actionsTypes.SET_ID_USER,
+        target: target.ID_USER,
+        payload: idUser
+      });
       dispatch({
         type: actionsTypes.SET_AUTH_STATE,
         target: target.IS_AUTH,

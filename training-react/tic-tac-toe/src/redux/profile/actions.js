@@ -18,30 +18,33 @@ const completedTypes = completeTypes(
 export const actionsTypes = createTypes(completedTypes, '@@PROFILE');
 
 const actionCreators = {
-  getUser: () => ({
-    type: actionsTypes.GET_USER,
-    target: target.GET_USER,
-    service: profileService.getUser,
-    injections: [
-      withPostSuccess((dispatch, response) => {
-        dispatch({
-          type: actionsTypes.SET_INFO_USER,
-          target: target.INFO_USER,
-          payload: {
-            firstname: response.data.firstname,
-            surname: response.data.surname,
-            username: response.data.username,
-            address: response.data.address
-          }
-        });
-        dispatch({
-          type: actionsTypes.IS_LOADED_PROFILE,
-          target: target.IS_LOADED_PROFILE,
-          payload: true
-        });
-      })
-    ]
-  }),
+  getUser: () => (dispatch, getState) => {
+    dispatch({
+      type: actionsTypes.GET_USER,
+      target: target.GET_USER,
+      service: profileService.getUser,
+      payload: getState().login.idUser,
+      injections: [
+        withPostSuccess((disp, res) => {
+          disp({
+            type: actionsTypes.SET_INFO_USER,
+            target: target.INFO_USER,
+            payload: {
+              firstname: res.data.firstname,
+              surname: res.data.surname,
+              username: res.data.username,
+              address: res.data.address
+            }
+          });
+          dispatch({
+            type: actionsTypes.IS_LOADED_PROFILE,
+            target: target.IS_LOADED_PROFILE,
+            payload: true
+          });
+        })
+      ]
+    });
+  },
   updateUser: userData => ({
     type: actionsTypes.UPDATE_USER,
     target: target.UPDATE_USER,

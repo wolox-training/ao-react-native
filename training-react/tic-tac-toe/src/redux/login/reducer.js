@@ -3,7 +3,6 @@ import { completeState, createReducer, completeReducer, onReadValue } from 'redu
 import { actionsTypes } from './actions';
 
 const initialStateDescription = {
-  isAuth: null,
   appIsLoaded: false
 };
 
@@ -13,7 +12,8 @@ const reducerDescription = {
   primaryActions: [actionsTypes.AUTH_USER],
   override: {
     [actionsTypes.SET_AUTH_STATE]: onReadValue(),
-    [actionsTypes.IS_LOADED_APP]: onReadValue()
+    [actionsTypes.IS_LOADED_APP]: onReadValue(),
+    [actionsTypes.SET_ID_USER]: onReadValue()
   }
 };
 
