@@ -16,14 +16,14 @@ class Profile extends Component {
   }
 
   render() {
-    const { onUpdateUser, isLoadedProfile, infoUser, updateUser, updateUserError } = this.props;
+    const { onUpdateUser, isLoadedProfile, infoUser, updateUserError, isSuccessUpdate } = this.props;
     return (
       <Layout
         onSubmit={onUpdateUser}
         isLoaded={isLoadedProfile}
         infoUser={infoUser}
-        msgUpdate={updateUser}
         hasError={updateUserError}
+        isSuccessUpdate={isSuccessUpdate}
       />
     );
   }
@@ -33,17 +33,17 @@ Profile.propTypes = {
   onUpdateUser: PropTypes.func.isRequired,
   onGetUser: PropTypes.func.isRequired,
   onClearState: PropTypes.func.isRequired,
+  isSuccessUpdate: PropTypes.bool.isRequired,
   infoUser: infoUserPropType,
   isLoadedProfile: PropTypes.bool,
-  updateUser: PropTypes.string,
   updateUserError: PropTypes.bool
 };
 
 const mapStateToProps = ({ profile }) => ({
   infoUser: profile.infoUser,
   isLoadedProfile: profile.isLoadedProfile,
-  updateUser: profile.updateUser,
-  updateUserError: profile.updateUserError
+  updateUserError: profile.updateUserError,
+  isSuccessUpdate: profile.isSuccessUpdate
 });
 
 const mapDispatchToProps = dispatch => ({

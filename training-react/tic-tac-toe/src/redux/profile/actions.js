@@ -1,4 +1,4 @@
-import { createTypes, completeTypes, withPostSuccess, withSuccess, withFailure } from 'redux-recompose';
+import { createTypes, completeTypes, withPostSuccess } from 'redux-recompose';
 import profileService from '@services/profileService';
 
 const target = {
@@ -6,12 +6,13 @@ const target = {
   GET_USER: 'getUser',
   INFO_USER: 'infoUser',
   IS_LOADED_PROFILE: 'isLoadedProfile',
-  PROFILE: 'profile'
+  PROFILE: 'profile',
+  IS_SUCCESS_UPDATE: 'isSuccessUpdate'
 };
 
 const completedTypes = completeTypes(
   ['UPDATE_USER', 'GET_USER'],
-  ['CLEAR_STATE', 'SET_INFO_USER', 'IS_LOADED_PROFILE']
+  ['CLEAR_STATE', 'SET_INFO_USER', 'IS_LOADED_PROFILE', 'IS_SUCCESS_UPDATE']
 );
 
 export const actionsTypes = createTypes(completedTypes, '@@PROFILE');
@@ -47,28 +48,11 @@ const actionCreators = {
     service: profileService.updateUser,
     payload: userData,
     injections: [
-      withSuccess(dispatch => {
+      withPostSuccess(dispatch => {
         dispatch({
-          type: actionsTypes.UPDATE_USER_SUCCESS,
-          target: target.UPDATE_USER,
-          payload: 'Succes update user data'
-        });
-        dispatch({
-          type: actionsTypes.UPDATE_USER,
-          target: target.UPDATE_USER,
-          payload: false
-        });
-      }),
-      withFailure(dispatch => {
-        dispatch({
-          type: actionsTypes.UPDATE_USER_FAILURE,
-          target: target.UPDATE_USER,
+          type: actionsTypes.IS_SUCCESS_UPDATE,
+          target: target.IS_SUCCESS_UPDATE,
           payload: true
-        });
-        dispatch({
-          type: actionsTypes.UPDATE_USER,
-          target: target.UPDATE_USER,
-          payload: false
         });
       })
     ]

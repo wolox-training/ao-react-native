@@ -8,7 +8,7 @@ import formNames from '@consts/formNames';
 
 import styles from './styles.scss';
 
-function Form({ handleSubmit, msgUpdate, hasError }) {
+function Form({ handleSubmit, hasError, isSuccessUpdate }) {
   return (
     <Fragment>
       <div className={styles.containerUserImg}>
@@ -23,18 +23,18 @@ function Form({ handleSubmit, msgUpdate, hasError }) {
           update
         </button>
       </form>
-      {!hasError ? (
-        <span className={styles.successUpdate}>{msgUpdate}</span>
-      ) : (
+      {isSuccessUpdate ? (
+        <span className={styles.successUpdate}>Success update user data</span>
+      ) : hasError ? (
         <span className={styles.failureUpdate}>Error in update user data</span>
-      )}
+      ) : null}
     </Fragment>
   );
 }
 
 Form.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  msgUpdate: PropTypes.string,
+  isSuccessUpdate: PropTypes.bool.isRequired,
   hasError: PropTypes.bool
 };
 
