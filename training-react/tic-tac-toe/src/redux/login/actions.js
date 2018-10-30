@@ -3,17 +3,17 @@ import loginService from '@services/loginService';
 
 const target = {
   IS_AUTH: 'isAuth',
-  APP_IS_LOADED: 'appIsLoaded'
+  APP_IS_LOADING: 'loading'
 };
 
-const completedTypes = completeTypes(['AUTH_USER'], ['IS_LOADED_APP', 'SET_AUTH_STATE']);
+const completedTypes = completeTypes(['AUTH_USER'], ['APP_IS_LOADING', 'SET_AUTH_STATE']);
 
 export const actionsTypes = createTypes(completedTypes, '@@LOGIN');
 
 const actionCreators = {
   authUser: userData => ({
     type: actionsTypes.AUTH_USER,
-    target: target.AUTH,
+    target: target.IS_AUTH,
     service: loginService.authUser,
     payload: { username: userData.email, password: userData.password },
     injections: [
@@ -32,7 +32,7 @@ const actionCreators = {
   }),
   logout: () => ({
     type: actionsTypes.AUTH_USER,
-    target: target.AUTH,
+    target: target.IS_AUTH,
     service: loginService.logout,
     injections: [
       withPostSuccess(dispatch => {
@@ -56,9 +56,9 @@ const actionCreators = {
       });
     }
     dispatch({
-      type: actionsTypes.IS_LOADED_APP,
-      target: target.APP_IS_LOADED,
-      payload: true
+      type: actionsTypes.APP_IS_LOADING,
+      target: target.APP_IS_LOADING,
+      payload: false
     });
   }
 };

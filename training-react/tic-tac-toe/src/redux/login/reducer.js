@@ -4,16 +4,16 @@ import { actionsTypes } from './actions';
 
 const initialStateDescription = {
   isAuth: null,
-  appIsLoaded: false
+  loading: true
 };
 
-const initialState = completeState(initialStateDescription, ['appIsLoaded']);
+const initialState = completeState(initialStateDescription, ['loading']);
 
 const reducerDescription = {
   primaryActions: [actionsTypes.AUTH_USER],
   override: {
     [actionsTypes.SET_AUTH_STATE]: onReadValue(),
-    [actionsTypes.IS_LOADED_APP]: onReadValue()
+    [actionsTypes.APP_IS_LOADING]: onReadValue()
   }
 };
 

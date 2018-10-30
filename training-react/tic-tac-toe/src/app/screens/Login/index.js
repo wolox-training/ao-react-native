@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import actionCreators from '@redux/login/actions';
 import PropTypes from 'prop-types';
+import HCO from '@components/HOC';
 
 import Layout from './layout';
 
@@ -15,7 +16,8 @@ Login.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  hasError: state.login.isAuthError
+  hasError: state.login.isAuthError,
+  loading: state.login.isAuthLoading
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -25,4 +27,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login);
+)(HCO(Login));

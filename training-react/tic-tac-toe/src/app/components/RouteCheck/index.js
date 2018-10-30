@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import ROUTES from '@consts/route';
-import Home from '@screens/Home';
-import Login from '@screens/Login';
 import PropTypes from 'prop-types';
 import actionCreators from '@redux/login/actions';
 
-import ValidateRoute from './components/ValidateRoute';
+import Layout from './layout';
 
 class RouteCheck extends Component {
   componentDidMount() {
@@ -15,27 +11,18 @@ class RouteCheck extends Component {
   }
 
   render() {
-    const appIsLoaded = this.props.appIsLoaded;
-    return !appIsLoaded ? (
-      <div>Loading...</div>
-    ) : (
-      <Router>
-        <Switch>
-          <ValidateRoute exact path={ROUTES.LOGIN} component={Login} />
-          <ValidateRoute isPrivate component={Home} />
-        </Switch>
-      </Router>
-    );
+    const loading = this.props.loading;
+    return <Layout loading={loading} />;
   }
 }
 
 RouteCheck.propTypes = {
-  appIsLoaded: PropTypes.bool.isRequired,
-  loadApp: PropTypes.func.isRequired
+  loadApp: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
-  appIsLoaded: state.login.appIsLoaded
+  loading: state.login.loading
 });
 
 const mapDispatchToProps = dispatch => ({

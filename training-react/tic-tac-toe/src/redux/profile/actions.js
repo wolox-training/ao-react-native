@@ -5,14 +5,14 @@ const target = {
   UPDATE_USER: 'updateUser',
   GET_USER: 'getUser',
   INFO_USER: 'infoUser',
-  IS_LOADED_PROFILE: 'isLoadedProfile',
+  PROFILE_IS_LOADING: 'loading',
   PROFILE: 'profile',
   IS_SUCCESS_UPDATE: 'isSuccessUpdate'
 };
 
 const completedTypes = completeTypes(
   ['UPDATE_USER', 'GET_USER'],
-  ['CLEAR_STATE', 'SET_INFO_USER', 'IS_LOADED_PROFILE', 'IS_SUCCESS_UPDATE']
+  ['CLEAR_STATE', 'SET_INFO_USER', 'PROFILE_IS_LOADING', 'IS_SUCCESS_UPDATE']
 );
 
 export const actionsTypes = createTypes(completedTypes, '@@PROFILE');
@@ -35,9 +35,9 @@ const actionCreators = {
           }
         });
         dispatch({
-          type: actionsTypes.IS_LOADED_PROFILE,
-          target: target.IS_LOADED_PROFILE,
-          payload: true
+          type: actionsTypes.PROFILE_IS_LOADING,
+          target: target.PROFILE_IS_LOADING,
+          payload: false
         });
       })
     ]
