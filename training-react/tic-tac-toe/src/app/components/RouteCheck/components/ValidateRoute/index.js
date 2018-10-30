@@ -35,8 +35,8 @@ class ValidateRoute extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
-  isAuth: state.login.isAuth
+const mapStateToProps = ({ login }) => ({
+  isAuth: login.isAuth
 });
 
 export default connect(mapStateToProps)(ValidateRoute);

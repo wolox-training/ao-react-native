@@ -21,8 +21,8 @@ RouteCheck.propTypes = {
   loading: PropTypes.bool.isRequired
 };
 
-const mapStateToProps = state => ({
-  loading: state.login.loading
+const mapStateToProps = ({ login }) => ({
+  loading: login.loading
 });
 
 const mapDispatchToProps = dispatch => ({

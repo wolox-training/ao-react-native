@@ -6,18 +6,18 @@ import HCO from '@components/HOC';
 
 import Layout from './layout';
 
-function Login({ handleSubmit, hasError }) {
-  return <Layout onSubmit={handleSubmit} hasError={hasError} />;
+function Login({ handleSubmit, msgAuthError }) {
+  return <Layout onSubmit={handleSubmit} msgAuthError={msgAuthError} />;
 }
 
 Login.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  hasError: PropTypes.string
+  msgAuthError: PropTypes.string
 };
 
-const mapStateToProps = state => ({
-  hasError: state.login.isAuthError,
-  loading: state.login.isAuthLoading
+const mapStateToProps = ({ login }) => ({
+  msgAuthError: login.isAuthError,
+  loading: login.isAuthLoading
 });
 
 const mapDispatchToProps = dispatch => ({

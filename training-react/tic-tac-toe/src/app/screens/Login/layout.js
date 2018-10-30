@@ -10,7 +10,7 @@ import logo from '@assets/images/img-wolox-logo.svg';
 
 import style from './styles.scss';
 
-function Layout({ handleSubmit, hasError }) {
+function Layout({ handleSubmit, msgAuthError }) {
   return (
     <section className={style.loginPage}>
       <div className={style.containerForm}>
@@ -33,7 +33,7 @@ function Layout({ handleSubmit, hasError }) {
           <button className={style.btnLogin} type="submit">
             login
           </button>
-          {hasError && <div className={style.messageError}>{hasError}</div>}
+          {msgAuthError && <div className={style.messageError}>{msgAuthError}</div>}
         </form>
       </div>
     </section>
@@ -42,7 +42,7 @@ function Layout({ handleSubmit, hasError }) {
 
 Layout.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  hasError: PropTypes.string
+  msgAuthError: PropTypes.string
 };
 
 export default reduxForm({ form: formNames.login })(Layout);
