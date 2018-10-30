@@ -3,10 +3,14 @@ import { calculateWinner } from '@utils/utils';
 
 export const actionsTypes = createTypes(['JUMP_TO_STEP', 'CLICK_SQUARE'], '@@TIC_TAC_TOE');
 
+const target = {
+  GAME: 'game'
+};
+
 const actionCreators = {
   jumpToStep: step => ({
     type: actionsTypes.JUMP_TO_STEP,
-    target: 'game',
+    target: target.GAME,
     payload: step
   }),
   clickSquare: i => (dispatch, getState) => {
@@ -24,7 +28,7 @@ const actionCreators = {
 
     dispatch({
       type: actionsTypes.CLICK_SQUARE,
-      target: 'game',
+      target: target.GAME,
       payload: {
         history: currentHistory.concat([{ squares, step }]),
         stepNumber: currentHistory.length,

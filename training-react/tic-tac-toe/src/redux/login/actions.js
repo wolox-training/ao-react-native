@@ -13,7 +13,7 @@ export const actionsTypes = createTypes(completedTypes, '@@LOGIN');
 const actionCreators = {
   authUser: userData => ({
     type: actionsTypes.AUTH_USER,
-    target: target.AUTH,
+    target: target.IS_AUTH,
     service: loginService.authUser,
     payload: { username: userData.email, password: userData.password },
     injections: [
@@ -32,7 +32,7 @@ const actionCreators = {
   }),
   logout: () => ({
     type: actionsTypes.AUTH_USER,
-    target: target.AUTH,
+    target: target.IS_AUTH,
     service: loginService.logout,
     injections: [
       withPostSuccess(dispatch => {

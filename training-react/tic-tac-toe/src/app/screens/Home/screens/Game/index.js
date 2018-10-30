@@ -21,10 +21,10 @@ function GameContainer({ history, stepNumber, xIsNext, handleClick, jumpTo }) {
   );
 }
 
-const mapStateToProps = state => ({
-  history: state.game.history,
-  xIsNext: state.game.xIsNext,
-  stepNumber: state.game.stepNumber
+const mapStateToProps = ({ game }) => ({
+  history: game.history,
+  xIsNext: game.xIsNext,
+  stepNumber: game.stepNumber
 });
 
 const mapDispatchToProps = dispatch => ({

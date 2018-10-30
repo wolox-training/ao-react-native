@@ -34,8 +34,8 @@ RouteCheck.propTypes = {
   loadApp: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-  appIsLoaded: state.login.appIsLoaded
+const mapStateToProps = ({ login }) => ({
+  appIsLoaded: login.appIsLoaded
 });
 
 const mapDispatchToProps = dispatch => ({

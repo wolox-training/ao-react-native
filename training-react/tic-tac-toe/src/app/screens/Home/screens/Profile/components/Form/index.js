@@ -25,9 +25,9 @@ function Form({ handleSubmit, hasError, isSuccessUpdate }) {
       </form>
       {isSuccessUpdate ? (
         <span className={styles.successUpdate}>Success update user data</span>
-      ) : hasError ? (
-        <span className={styles.failureUpdate}>Error in update user data</span>
-      ) : null}
+      ) : (
+        hasError && <span className={styles.failureUpdate}>Error in update user data</span>
+      )}
     </Fragment>
   );
 }
