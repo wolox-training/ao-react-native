@@ -5,12 +5,19 @@ import { infoUserPropType } from '@propTypes/propTypes';
 import Form from './components/Form';
 import styles from './styles.scss';
 
-function Layout({ onSubmit, infoUser, loaded, msgUpdate, hasError }) {
+function Layout({ onSubmit, isLoaded, infoUser, hasError, isSuccessUpdate }) {
   return (
     <section className={styles.profile}>
       <article className={styles.containerForm}>
-        {loaded && (
-          <Form onSubmit={onSubmit} initialValues={infoUser} msgUpdate={msgUpdate} hasError={hasError} />
+        {!isLoaded ? (
+          <div>Loading...</div>
+        ) : (
+          <Form
+            onSubmit={onSubmit}
+            initialValues={infoUser}
+            hasError={hasError}
+            isSuccessUpdate={isSuccessUpdate}
+          />
         )}
       </article>
     </section>
@@ -19,10 +26,10 @@ function Layout({ onSubmit, infoUser, loaded, msgUpdate, hasError }) {
 
 Layout.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  loaded: PropTypes.bool.isRequired,
-  msgUpdate: PropTypes.string.isRequired,
-  hasError: PropTypes.bool.isRequired,
-  infoUser: infoUserPropType
+  isSuccessUpdate: PropTypes.bool.isRequired,
+  infoUser: infoUserPropType,
+  hasError: PropTypes.bool,
+  isLoaded: PropTypes.bool
 };
 
 export default Layout;

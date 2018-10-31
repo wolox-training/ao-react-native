@@ -5,19 +5,17 @@ import PropTypes from 'prop-types';
 
 import Layout from './layout';
 
-function Login({ handleSubmit, hasErrorAuth, msgError }) {
-  return <Layout onSubmit={handleSubmit} hasError={hasErrorAuth} msgError={msgError} />;
+function Login({ handleSubmit, msgAuthError }) {
+  return <Layout onSubmit={handleSubmit} msgAuthError={msgAuthError} />;
 }
 
 Login.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  hasErrorAuth: PropTypes.bool.isRequired,
-  msgError: PropTypes.string.isRequired
+  msgAuthError: PropTypes.string
 };
 
-const mapStateToProps = state => ({
-  hasErrorAuth: state.login.hasErrorAuth,
-  msgError: state.login.msgError
+const mapStateToProps = ({ login }) => ({
+  msgAuthError: login.isAuthError
 });
 
 const mapDispatchToProps = dispatch => ({

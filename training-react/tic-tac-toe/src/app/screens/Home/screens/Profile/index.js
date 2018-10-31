@@ -8,48 +8,48 @@ import Layout from './layout';
 
 class Profile extends Component {
   componentDidMount() {
-    this.props.getUser();
+    this.props.onGetUser();
   }
 
   componentWillUnmount() {
-    this.props.clearState();
+    this.props.onClearState();
   }
 
   render() {
-    const { updateUser, infoUser, loaded, msgUpdate, hasError } = this.props;
+    const { onUpdateUser, isLoadedProfile, infoUser, updateUserError, isSuccessUpdate } = this.props;
     return (
       <Layout
-        onSubmit={updateUser}
+        onSubmit={onUpdateUser}
+        isLoaded={isLoadedProfile}
         infoUser={infoUser}
-        loaded={loaded}
-        msgUpdate={msgUpdate}
-        hasError={hasError}
+        hasError={updateUserError}
+        isSuccessUpdate={isSuccessUpdate}
       />
     );
   }
 }
 
 Profile.propTypes = {
-  updateUser: PropTypes.func.isRequired,
-  getUser: PropTypes.func.isRequired,
-  clearState: PropTypes.func.isRequired,
-  loaded: PropTypes.bool.isRequired,
-  msgUpdate: PropTypes.string.isRequired,
-  hasError: PropTypes.bool.isRequired,
-  infoUser: infoUserPropType
+  onUpdateUser: PropTypes.func.isRequired,
+  onGetUser: PropTypes.func.isRequired,
+  onClearState: PropTypes.func.isRequired,
+  isSuccessUpdate: PropTypes.bool.isRequired,
+  infoUser: infoUserPropType,
+  isLoadedProfile: PropTypes.bool,
+  updateUserError: PropTypes.bool
 };
 
 const mapStateToProps = ({ profile }) => ({
-  infoUser: profile.info,
-  loaded: profile.loaded,
-  msgUpdate: profile.msgUpdate,
-  hasError: profile.hasError
+  infoUser: profile.infoUser,
+  isLoadedProfile: profile.isLoadedProfile,
+  updateUserError: profile.updateUserError,
+  isSuccessUpdate: profile.isSuccessUpdate
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateUser: params => dispatch(actionCreators.updateUser(params)),
-  getUser: () => dispatch(actionCreators.getUser()),
-  clearState: () => dispatch(actionCreators.clearState())
+  onUpdateUser: params => dispatch(actionCreators.updateUser(params)),
+  onGetUser: () => dispatch(actionCreators.getUser()),
+  onClearState: () => dispatch(actionCreators.clearState())
 });
 
 export default connect(

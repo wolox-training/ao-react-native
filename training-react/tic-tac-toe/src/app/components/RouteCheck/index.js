@@ -11,35 +11,35 @@ import ValidateRoute from './components/ValidateRoute';
 
 class RouteCheck extends Component {
   componentDidMount() {
-    this.props.validateIsLogin();
+    this.props.loadApp();
   }
 
   render() {
-    const { loading } = this.props;
-    return (
-      !loading && (
-        <Router>
-          <Switch>
-            <ValidateRoute exact path={ROUTES.LOGIN} component={Login} />
-            <ValidateRoute isPrivate component={Home} />
-          </Switch>
-        </Router>
-      )
+    const appIsLoaded = this.props.appIsLoaded;
+    return !appIsLoaded ? (
+      <div>Loading...</div>
+    ) : (
+      <Router>
+        <Switch>
+          <ValidateRoute exact path={ROUTES.LOGIN} component={Login} />
+          <ValidateRoute isPrivate component={Home} />
+        </Switch>
+      </Router>
     );
   }
 }
 
 RouteCheck.propTypes = {
-  validateIsLogin: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired
+  appIsLoaded: PropTypes.bool.isRequired,
+  loadApp: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-  loading: state.login.loading
+const mapStateToProps = ({ login }) => ({
+  appIsLoaded: login.appIsLoaded
 });
 
 const mapDispatchToProps = dispatch => ({
-  validateIsLogin: () => dispatch(actionCreators.validateIsLogin())
+  loadApp: () => dispatch(actionCreators.loadApp())
 });
 
 export default connect(

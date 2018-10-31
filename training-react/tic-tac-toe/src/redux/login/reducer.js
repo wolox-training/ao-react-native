@@ -1,41 +1,20 @@
+import { completeState, createReducer, completeReducer, onReadValue } from 'redux-recompose';
+
 import { actionsTypes } from './actions';
 
-const initialState = {
-  hasErrorAuth: false,
-  msgError: '',
-  isLogedIn: !!localStorage.getItem('userToken'),
-  tokenAuth: localStorage.getItem('userToken'),
-  loading: true
+const initialStateDescription = {
+  appIsLoaded: false
 };
 
-export default function reducer(state = initialState, action) {
-  switch (action.type) {
-    case actionsTypes.AUTH_USER:
-      return {
-        ...state,
-        hasErrorAuth: false,
-        msgError: '',
-        tokenAuth: action.payload,
-        isLogedIn: true
-      };
-    case actionsTypes.HAS_ERROR_USER:
-      return {
-        ...state,
-        hasErrorAuth: true,
-        msgError: action.payload
-      };
-    case actionsTypes.SIGN_OUT_USER:
-      return {
-        ...state,
-        isLogedIn: false,
-        tokenAuth: null
-      };
-    case actionsTypes.VALIDATE_IS_LOGIN:
-      return {
-        ...state,
-        loading: false
-      };
-    default:
-      return state;
+const initialState = completeState(initialStateDescription, ['appIsLoaded']);
+
+const reducerDescription = {
+  primaryActions: [actionsTypes.AUTH_USER],
+  override: {
+    [actionsTypes.SET_AUTH_STATE]: onReadValue(),
+    [actionsTypes.IS_LOADED_APP]: onReadValue(),
+    [actionsTypes.SET_ID_USER]: onReadValue()
   }
-}
+};
+
+export default createReducer(initialState, completeReducer(reducerDescription));
