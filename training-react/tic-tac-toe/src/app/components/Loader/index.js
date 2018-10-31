@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import style from './styles.scss';
 
-function HigherOrderComponent(WrappedComponent) {
-  class HOC extends Component {
+function Loader(WrappedComponent) {
+  class Comp extends Component {
     render() {
       const { loading, ...props } = this.props;
       return loading ? (
@@ -15,7 +16,12 @@ function HigherOrderComponent(WrappedComponent) {
       );
     }
   }
-  return HOC;
+
+  Comp.propTypes = {
+    loading: PropTypes.bool.isRequired
+  };
+
+  return Comp;
 }
 
-export default HigherOrderComponent;
+export default Loader;

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import actionCreators from '@redux/login/actions';
 import PropTypes from 'prop-types';
-import HCO from '@components/HOC';
+import Loader from '@components/Loader';
 
 import Layout from './layout';
 
@@ -27,4 +27,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HCO(Login));
+)(Loader(Login));

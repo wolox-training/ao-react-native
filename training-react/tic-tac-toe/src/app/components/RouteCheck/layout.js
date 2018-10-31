@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import ROUTES from '@consts/route';
 import Home from '@screens/Home';
 import Login from '@screens/Login';
-import HOC from '@components/HOC';
+import Loader from '@components/Loader';
 
 import ValidateRoute from './components/ValidateRoute';
 
@@ -18,4 +18,4 @@ function Layout() {
   );
 }
 
-export default HOC(Layout);
+export default Loader(Layout);

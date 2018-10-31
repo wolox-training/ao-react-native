@@ -11,8 +11,7 @@ class RouteCheck extends Component {
   }
 
   render() {
-    const loading = this.props.loading;
-    return <Layout loading={loading} />;
+    return <Layout loading={this.props.loading} />;
   }
 }
 

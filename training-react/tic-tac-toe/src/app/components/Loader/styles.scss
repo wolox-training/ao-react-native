@@ -12,15 +12,14 @@
 }
 
 .loader {
-  display: inline-block;
   height: 64px;
   width: 64px;
   &::after {
     animation: lds-dual-ring 1.2s linear infinite;
     border: 5px solid $white;
-    border-color: $white transparent $white transparent;
+    border-color: $white $transparent $white $transparent;
     border-radius: 50%;
-    content: ' ';
+    content: '';
     display: block;
     height: 46px;
     margin: 1px;

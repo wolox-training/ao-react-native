@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { infoUserPropType } from '@propTypes/propTypes';
-import HOC from '@components/HOC';
+import Loader from '@components/Loader';
 
 import Form from './components/Form';
 import styles from './styles.scss';
@@ -28,4 +28,4 @@ Layout.propTypes = {
   hasError: PropTypes.bool
 };
 
-export default HOC(Layout);
+export default Loader(Layout);
