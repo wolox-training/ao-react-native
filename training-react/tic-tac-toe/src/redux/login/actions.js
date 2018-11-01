@@ -3,11 +3,11 @@ import loginService from '@services/loginService';
 
 const target = {
   IS_AUTH: 'isAuth',
-  APP_IS_LOADED: 'appIsLoaded',
+  APP_IS_LOADING: 'loading',
   ID_USER: 'idUser'
 };
 
-const completedTypes = completeTypes(['AUTH_USER'], ['IS_LOADED_APP', 'SET_AUTH_STATE', 'SET_ID_USER']);
+const completedTypes = completeTypes(['AUTH_USER'], ['APP_IS_LOADING', 'SET_AUTH_STATE', 'SET_ID_USER']);
 
 export const actionsTypes = createTypes(completedTypes, '@@LOGIN');
 
@@ -69,9 +69,9 @@ const actionCreators = {
       });
     }
     dispatch({
-      type: actionsTypes.IS_LOADED_APP,
-      target: target.APP_IS_LOADED,
-      payload: true
+      type: actionsTypes.APP_IS_LOADING,
+      target: target.APP_IS_LOADING,
+      payload: false
     });
   }
 };

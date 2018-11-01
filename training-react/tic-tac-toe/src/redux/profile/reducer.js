@@ -5,6 +5,7 @@ import { actionsTypes } from './actions';
 const initialStateDescription = {
   isLoadedProfile: false,
   isSuccessUpdate: false,
+  loading: true,
   infoUser: {
     firstname: '',
     surname: '',
@@ -13,11 +14,7 @@ const initialStateDescription = {
   }
 };
 
-const initialState = completeState(initialStateDescription, [
-  'infoUser',
-  'isLoadedProfile',
-  'isSuccessUpdate'
-]);
+const initialState = completeState(initialStateDescription, ['infoUser', 'loading', 'isSuccessUpdate']);
 
 const reducerEffects = {
   clearState: state => ({
@@ -31,7 +28,7 @@ const reducerDescription = {
   override: {
     [actionsTypes.CLEAR_STATE]: reducerEffects.clearState,
     [actionsTypes.SET_INFO_USER]: onReadValue(),
-    [actionsTypes.IS_LOADED_PROFILE]: onReadValue(),
+    [actionsTypes.PROFILE_IS_LOADING]: onReadValue(),
     [actionsTypes.IS_SUCCESS_UPDATE]: onReadValue()
   }
 };

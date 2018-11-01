@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import actionCreators from '@redux/login/actions';
 import PropTypes from 'prop-types';
+import Loader from '@components/Loader';
 
 import Layout from './layout';
 
@@ -15,7 +16,8 @@ Login.propTypes = {
 };
 
 const mapStateToProps = ({ login }) => ({
-  msgAuthError: login.isAuthError
+  msgAuthError: login.isAuthError,
+  loading: login.isAuthLoading
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -25,4 +27,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login);
+)(Loader(Login));
