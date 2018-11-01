@@ -22,6 +22,7 @@ class InitialLoadingScreen extends PureComponent {
       nextProps.navigation.replace(nextProps.currentUser ? Routes.Home : Routes.Login);
     }
   }
+
   render() {
     return null;
   }
