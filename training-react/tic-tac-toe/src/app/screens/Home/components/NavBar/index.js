@@ -14,7 +14,7 @@ NavBar.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  signOutUser: () => dispatch(ActionCreators.signOutUser())
+  signOutUser: () => dispatch(ActionCreators.logout())
 });
 
 export default connect(

@@ -5,17 +5,17 @@ import ROUTES from '@consts/route';
 
 class ValidateRoute extends PureComponent {
   renderRoute = props => {
-    const { isPrivate, component: Component, isLogedIn } = this.props;
-    if (isLogedIn && !isPrivate) {
+    const { isPrivate, component: Component, isAuth } = this.props;
+    if (isAuth && !isPrivate) {
       return (
         <Redirect
           to={{
-            pathname: ROUTES.GAME,
+            pathname: ROUTES.HOME,
             state: { from: props.location }
           }}
         />
       );
-    } else if (!isLogedIn && isPrivate) {
+    } else if (!isAuth && isPrivate) {
       return (
         <Redirect
           to={{
@@ -35,8 +35,8 @@ class ValidateRoute extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
-  isLogedIn: state.login.isLogedIn
+const mapStateToProps = ({ login }) => ({
+  isAuth: login.isAuth
 });
 
 export default connect(mapStateToProps)(ValidateRoute);

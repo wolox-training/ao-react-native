@@ -1,3 +1,5 @@
+import { createReducer } from 'redux-recompose';
+
 import { actionsTypes } from './actions';
 
 const initialState = {
@@ -6,17 +8,21 @@ const initialState = {
   stepNumber: 0
 };
 
-export default function reducer(state = initialState, action) {
-  switch (action.type) {
-    case actionsTypes.JUMP_TO_STEP:
-      return {
-        ...state,
-        stepNumber: action.step,
-        xIsNext: action.step % 2 === 0
-      };
-    case actionsTypes.CLICK_TO_SQUARE:
-      return { ...state, ...action.payload };
-    default:
-      return state;
-  }
-}
+const reducerEffects = {
+  onJump: (state, action) => ({
+    ...state,
+    stepNumber: action.payload,
+    xIsNext: action.payload % 2 === 0
+  }),
+  onClickSquare: (state, action) => ({
+    ...state,
+    ...action.payload
+  })
+};
+
+const reducerDescription = {
+  [actionsTypes.JUMP_TO_STEP]: reducerEffects.onJump,
+  [actionsTypes.CLICK_SQUARE]: reducerEffects.onClickSquare
+};
+
+export default createReducer(initialState, reducerDescription);

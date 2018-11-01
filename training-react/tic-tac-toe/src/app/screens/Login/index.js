@@ -2,22 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import actionCreators from '@redux/login/actions';
 import PropTypes from 'prop-types';
+import Loader from '@components/Loader';
 
 import Layout from './layout';
 
-function Login({ handleSubmit, hasErrorAuth, msgError }) {
-  return <Layout onSubmit={handleSubmit} hasError={hasErrorAuth} msgError={msgError} />;
+function Login({ handleSubmit, msgAuthError }) {
+  return <Layout onSubmit={handleSubmit} msgAuthError={msgAuthError} />;
 }
 
 Login.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  hasErrorAuth: PropTypes.bool.isRequired,
-  msgError: PropTypes.string.isRequired
+  msgAuthError: PropTypes.string
 };
 
-const mapStateToProps = state => ({
-  hasErrorAuth: state.login.hasErrorAuth,
-  msgError: state.login.msgError
+const mapStateToProps = ({ login }) => ({
+  msgAuthError: login.isAuthError,
+  loading: login.isAuthLoading
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -27,4 +27,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login);
+)(Loader(Login));

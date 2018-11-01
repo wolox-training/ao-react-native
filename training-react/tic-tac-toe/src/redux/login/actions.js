@@ -1,30 +1,77 @@
+import { createTypes, completeTypes, withPostSuccess } from 'redux-recompose';
 import loginService from '@services/loginService';
 
-export const actionsTypes = {
-  AUTH_USER: 'AUTH_USER',
-  HAS_ERROR_USER: 'HAS_ERROR_USER',
-  SIGN_OUT_USER: 'SIGN_OUT_USER'
+const target = {
+  IS_AUTH: 'isAuth',
+  APP_IS_LOADING: 'loading',
+  ID_USER: 'idUser'
 };
 
+const completedTypes = completeTypes(['AUTH_USER'], ['APP_IS_LOADING', 'SET_AUTH_STATE', 'SET_ID_USER']);
+
+export const actionsTypes = createTypes(completedTypes, '@@LOGIN');
+
 const actionCreators = {
-  authUser: userData => async dispatch => {
-    const params = { username: userData.email, password: userData.password };
-    const response = await loginService.authUser(params);
-    const token = response.data.id;
-    if (response.ok) {
-      localStorage.setItem('userToken', token);
-      localStorage.setItem('userId', response.data.userId);
+  authUser: userData => ({
+    type: actionsTypes.AUTH_USER,
+    target: target.IS_AUTH,
+    service: loginService.authUser,
+    payload: { username: userData.email, password: userData.password },
+    injections: [
+      withPostSuccess((dispatch, response) => {
+        const token = response.data.id;
+        const idUser = response.data.userId;
+        localStorage.setItem('userToken', token);
+        localStorage.setItem('userId', idUser);
+        loginService.setToken(token);
+        dispatch({
+          type: actionsTypes.SET_AUTH_STATE,
+          target: target.IS_AUTH,
+          payload: !!token
+        });
+        dispatch({
+          type: actionsTypes.SET_ID_USER,
+          target: target.ID_USER,
+          payload: idUser
+        });
+      })
+    ]
+  }),
+  logout: () => ({
+    type: actionsTypes.AUTH_USER,
+    target: target.IS_AUTH,
+    service: loginService.logout,
+    injections: [
+      withPostSuccess(dispatch => {
+        localStorage.clear();
+        dispatch({
+          type: actionsTypes.SET_AUTH_STATE,
+          target: target.IS_AUTH,
+          payload: false
+        });
+      })
+    ]
+  }),
+  loadApp: () => dispatch => {
+    const token = localStorage.getItem('userToken');
+    const idUser = localStorage.getItem('userId');
+    if (token) {
       loginService.setToken(token);
+      dispatch({
+        type: actionsTypes.SET_ID_USER,
+        target: target.ID_USER,
+        payload: idUser
+      });
+      dispatch({
+        type: actionsTypes.SET_AUTH_STATE,
+        target: target.IS_AUTH,
+        payload: !!token
+      });
     }
     dispatch({
-      type: response.data.error ? actionsTypes.HAS_ERROR_USER : actionsTypes.AUTH_USER,
-      payload: response.data.error ? response.data.error.message : token
-    });
-  },
-  signOutUser: () => dispatch => {
-    localStorage.clear();
-    dispatch({
-      type: actionsTypes.SIGN_OUT_USER
+      type: actionsTypes.APP_IS_LOADING,
+      target: target.APP_IS_LOADING,
+      payload: false
     });
   }
 };

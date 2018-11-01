@@ -1,22 +1,34 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import ROUTES from '@consts/route';
-import Home from '@screens/Home';
-import Login from '@screens/Login';
-import ErrorPage from '@screens/ErrorPage';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import actionCreators from '@redux/login/actions';
 
-import ValidateRoute from './components/ValidateRoute';
+import Layout from './layout';
 
-function RouteCheck() {
-  return (
-    <Router>
-      <Switch>
-        <ValidateRoute exact path={ROUTES.LOGIN} component={Login} />
-        <ValidateRoute isPrivate component={Home} />
-        <Route component={ErrorPage} />
-      </Switch>
-    </Router>
-  );
+class RouteCheck extends Component {
+  componentDidMount() {
+    this.props.loadApp();
+  }
+
+  render() {
+    return <Layout loading={this.props.loading} />;
+  }
 }
 
-export default RouteCheck;
+RouteCheck.propTypes = {
+  loadApp: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired
+};
+
+const mapStateToProps = ({ login }) => ({
+  loading: login.loading
+});
+
+const mapDispatchToProps = dispatch => ({
+  loadApp: () => dispatch(actionCreators.loadApp())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RouteCheck);

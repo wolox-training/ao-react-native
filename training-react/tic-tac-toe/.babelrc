@@ -13,7 +13,8 @@
         "@consts": "./src/constants",
         "@utils": "./src/utils",
         "@validations": "./src/validations",
-        "@assets": "./src/assets"
+        "@assets": "./src/assets",
+        "@propTypes": "./src/propTypes"
       }
     }]
   ]
