@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import { whitesmoke, chestnutRose } from '../../../../../../../constants/colors';
+
 export default StyleSheet.create({
   item: {
     padding: 15,
@@ -7,7 +9,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: 'whitesmoke'
+    borderBottomColor: whitesmoke
   },
   rightSection: {
     flexDirection: 'row',
@@ -16,10 +18,10 @@ export default StyleSheet.create({
   remove: {
     marginLeft: 10,
     marginBottom: 2,
-    color: '#CD5C5C',
+    color: chestnutRose,
     fontSize: 26
   },
   completed: {
-    backgroundColor: 'whitesmoke'
+    backgroundColor: whitesmoke
   }
 });
