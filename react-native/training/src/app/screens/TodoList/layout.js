@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { strings } from '../../i18n';
+import { itemsTodoList } from '../../../propTypes/propTypes';
 
 import Title from './components/Title';
 import Input from './components/Input';
@@ -24,12 +25,7 @@ function TodoList({ items, addItem, removeItem, toggleItemCompleted, removeCompl
 }
 
 TodoList.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      completed: PropTypes.bool
-    })
-  ).isRequired,
+  items: itemsTodoList,
   addItem: PropTypes.func.isRequired,
   removeItem: PropTypes.func.isRequired,
   toggleItemCompleted: PropTypes.func.isRequired,

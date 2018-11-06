@@ -7,7 +7,7 @@ import Checkbox from '../../../Checkbox';
 import styles from './styles';
 
 function Layout({ item, onToggleItem, onRemoveItem }) {
-  const itemStyle = item.completed ? [styles.item, styles.completed] : styles.item;
+  const itemStyle = [styles.item, item.completed ? styles.completed : ''];
   return (
     <View style={itemStyle}>
       <Text> {item.label} </Text>

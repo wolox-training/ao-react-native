@@ -13,7 +13,7 @@ function Checkbox({ onToggle, isChecked }) {
 }
 
 Checkbox.propTypes = {
-  onToggle: PropTypes.func,
+  onToggle: PropTypes.func.isRequired,
   isChecked: PropTypes.bool
 };
 
