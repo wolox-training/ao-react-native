@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FlatList } from 'react-native';
 
+import { itemsTodoList } from '../../../../../propTypes/propTypes';
+
 import Item from './components/Item';
 import styles from './styles';
 
@@ -35,12 +37,7 @@ class List extends Component {
 }
 
 List.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      completed: PropTypes.bool
-    })
-  ).isRequired,
+  items: itemsTodoList,
   onRemoveItem: PropTypes.func.isRequired,
   onToggleItemCompleted: PropTypes.func.isRequired
 };

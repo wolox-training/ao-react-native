@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import actionCreators from '../../../redux/todoList/actions';
+import { itemsTodoList } from '../../../propTypes/propTypes';
 
 import TodoList from './layout';
 
@@ -19,12 +20,7 @@ function TodoListContainer({ items, addItem, removeItem, toggleItemCompleted, re
 }
 
 TodoListContainer.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      completed: PropTypes.bool
-    })
-  ).isRequired,
+  items: itemsTodoList,
   addItem: PropTypes.func.isRequired,
   removeItem: PropTypes.func.isRequired,
   toggleItemCompleted: PropTypes.func.isRequired,

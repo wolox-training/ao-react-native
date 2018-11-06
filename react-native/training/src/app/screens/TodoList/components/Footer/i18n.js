@@ -1,7 +1,5 @@
 import { buildTranslations, buildConstants } from '../../../../../utils/i18nUtils';
 
-// TODO: Replace here the screens titles
-
 const namespace = 'footer';
 const translations = {
   es: {

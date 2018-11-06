@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { itemsTodoList } from '../../../../../propTypes/propTypes';
+
 import List from './layout';
 
 function ListContainer({ items, onRemoveItem, onToggleItemCompleted }) {
@@ -8,12 +10,7 @@ function ListContainer({ items, onRemoveItem, onToggleItemCompleted }) {
 }
 
 ListContainer.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      completed: PropTypes.bool
-    })
-  ).isRequired,
+  items: itemsTodoList,
   onRemoveItem: PropTypes.func.isRequired,
   onToggleItemCompleted: PropTypes.func.isRequired
 };
