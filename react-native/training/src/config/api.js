@@ -1,7 +1,7 @@
 import Reactotron from 'reactotron-react-native';
 import { create } from 'apisauce';
 
-const baseURL = 'http://wolox.com';
+const baseURL = 'http://localhost:3000/api/';
 
 const api = create({
   baseURL,
