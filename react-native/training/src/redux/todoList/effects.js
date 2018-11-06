@@ -3,7 +3,7 @@ const reducerEffects = {
     ...state,
     [action.target]: [
       {
-        id: `${state.items.length} ${action.payload}`,
+        id: `${state.items.length}${action.payload}`,
         label: action.payload,
         completed: false
       },
