@@ -11,7 +11,7 @@ class List extends Component {
     return (
       <Item
         key={i + item.label}
-        index={i}
+        position={i}
         item={item}
         onToggleItemCompleted={onToggleItemCompleted}
         onRemoveItem={onRemoveItem}

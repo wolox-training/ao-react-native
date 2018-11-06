@@ -8,7 +8,12 @@ function ListContainer({ items, onRemoveItem, onToggleItemCompleted }) {
 }
 
 ListContainer.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      completed: PropTypes.bool
+    })
+  ).isRequired,
   onRemoveItem: PropTypes.func.isRequired,
   onToggleItemCompleted: PropTypes.func.isRequired
 };

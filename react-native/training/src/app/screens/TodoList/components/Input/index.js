@@ -41,7 +41,7 @@ class Input extends Component {
 }
 
 Input.propTypes = {
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
   placeholder: PropTypes.string
 };
 

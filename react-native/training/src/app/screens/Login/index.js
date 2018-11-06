@@ -19,7 +19,7 @@ class LoginContainer extends Component {
 }
 
 LoginContainer.propTypes = {
-  loading: PropTypes.bool
+  loading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = store => ({

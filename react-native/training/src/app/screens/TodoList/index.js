@@ -19,7 +19,12 @@ function TodoListContainer({ items, addItem, removeItem, toggleItemCompleted, re
 }
 
 TodoListContainer.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      completed: PropTypes.bool
+    })
+  ).isRequired,
   addItem: PropTypes.func.isRequired,
   removeItem: PropTypes.func.isRequired,
   toggleItemCompleted: PropTypes.func.isRequired,
