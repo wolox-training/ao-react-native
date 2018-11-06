@@ -3,6 +3,7 @@ const reducerEffects = {
     ...state,
     [action.target]: [
       {
+        id: `${state.items.length} ${action.payload}`,
         label: action.payload,
         completed: false
       },
@@ -17,7 +18,11 @@ const reducerEffects = {
     ...state,
     [action.target]: state.items.map((item, i) => {
       if (i === action.payload) {
-        return { label: item.label, completed: !item.completed };
+        return {
+          id: item.id,
+          label: item.label,
+          completed: !item.completed
+        };
       }
       return item;
     })
