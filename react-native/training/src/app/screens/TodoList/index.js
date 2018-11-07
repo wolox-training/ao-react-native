@@ -27,8 +27,8 @@ TodoListContainer.propTypes = {
   removeCompleted: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({ todoList }) => ({
-  items: todoList.items
+const mapStateToProps = store => ({
+  items: store.todoList.items
 });
 
 const mapDispatchToProps = dispatch => ({

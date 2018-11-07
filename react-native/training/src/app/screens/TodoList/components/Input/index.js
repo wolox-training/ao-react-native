@@ -17,7 +17,10 @@ class Input extends Component {
     const { onSubmit } = this.props;
     const { text } = this.state;
 
-    if (!text) return;
+    if (!text) {
+      alert('Oops! The input is Empty :C');
+      return;
+    }
 
     onSubmit(text);
     this.setState({ text: '' });
