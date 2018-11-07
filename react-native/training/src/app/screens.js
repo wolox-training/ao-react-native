@@ -59,13 +59,13 @@ export default createStackNavigator(
     [Routes.Home]: {
       screen: createBottomTabNavigator(
         {
-          [Routes.Tab1]: {
+          [Routes.Main]: {
             screen: Home,
-            navigationOptions: screensNavOptions[Routes.Tab1]
+            navigationOptions: screensNavOptions[Routes.Main]
           },
-          [Routes.Tab2]: {
+          [Routes.TodoList]: {
             screen: TodoList,
-            navigationOptions: screensNavOptions[Routes.Tab2]
+            navigationOptions: screensNavOptions[Routes.TodoList]
           }
         },
         tabNavConfig

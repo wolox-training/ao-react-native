@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FlatList } from 'react-native';
 
 import { itemsBookList } from '../../../propTypes/propTypes';
 import Loadable from '../../components/Loadable';
 
-function Layout({ books, keyExtractor, renderItem }) {
-  return <FlatList data={books} keyExtractor={keyExtractor} renderItem={renderItem} />;
+import Item from './components/Item';
+
+class Book extends Component {
+  keyExtractor = item => `${item.id}`;
+
+  renderItems = ({ item }) => <Item key={item.id} data={item} />;
+
+  render() {
+    const { books } = this.props;
+    return <FlatList data={books} keyExtractor={this.keyExtractor} renderItem={this.renderItems} />;
+  }
 }
 
-Layout.propTypes = {
-  books: PropTypes.arrayOf(itemsBookList),
-  keyExtractor: PropTypes.func.isRequired,
-  renderItem: PropTypes.func.isRequired
+Book.propTypes = {
+  books: PropTypes.arrayOf(itemsBookList)
 };
 
-export default Loadable(props => props.loading)(Layout);
+export default Loadable(props => props.loading)(Book);

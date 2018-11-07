@@ -7,7 +7,7 @@ import { itemsBookList } from '../../../../../propTypes/propTypes';
 
 import styles from './styles';
 
-function Layout({ data }) {
+function Item({ data }) {
   return (
     <TouchableHighlight>
       <View style={styles.itemContent}>
@@ -24,8 +24,8 @@ function Layout({ data }) {
   );
 }
 
-Layout.propTypes = {
+Item.propTypes = {
   data: itemsBookList
 };
 
-export default Layout;
+export default Item;

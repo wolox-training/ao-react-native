@@ -7,12 +7,14 @@ const namespace = 'app';
 const translations = {
   es: {
     [Routes.Login]: 'Login',
-    [Routes.Tab1]: 'Main view',
-    [Routes.Tab2]: 'Todo List',
+    [Routes.Main]: 'Main view',
+    [Routes.TodoList]: 'Todo List',
     [Routes.Home]: 'Home',
     [Routes.BookList]: 'Book List',
     titleMessage: 'Todo List',
-    placeholderItem: 'Enter an item!'
+    placeholderItem: 'Enter an item!',
+    btnLogout: 'Logout!',
+    btnGoBooks: 'Go to Books List'
   }
 };
 

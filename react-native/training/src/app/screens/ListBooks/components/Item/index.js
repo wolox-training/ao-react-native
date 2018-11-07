@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import { itemsBookList } from '../../../../../propTypes/propTypes';
 
-import Layout from './layout';
+import Item from './layout';
 
-class Item extends Component {
+class ItemContainer extends PureComponent {
   render() {
     const { data } = this.props;
-    return <Layout data={data} />;
+    return <Item data={data} />;
   }
 }
 
-Item.propTypes = {
+ItemContainer.propTypes = {
   data: itemsBookList
 };
 
-export default Item;
+export default ItemContainer;

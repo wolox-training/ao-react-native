@@ -25,8 +25,8 @@ class HomeContainer extends Component {
 
 HomeContainer.propTypes = {
   navigation: PropTypes.shape({
-    navigate: PropTypes.func
-  })
+    navigate: PropTypes.func.isRequired
+  }).isRequired
 };
 
 export default connect()(HomeContainer);
