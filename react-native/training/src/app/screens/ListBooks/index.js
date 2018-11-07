@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import Routes from '../../../constants/routes';
 import actionCreators from '../../../redux/listBooks/actions';
 import { itemsBookList } from '../../../propTypes/propTypes';
 
@@ -14,9 +15,17 @@ class Book extends Component {
     getBooks();
   }
 
+  handleTapItem = book => {
+    const { navigation } = this.props;
+    navigation.navigate(Routes.BookDetail, {
+      title: book.title,
+      book
+    });
+  };
+
   keyExtractor = item => `${item.id}`;
 
-  renderItems = ({ item }) => <Item key={item.id} data={item} />;
+  renderItems = ({ item }) => <Item key={item.id} book={item} onTapItem={this.handleTapItem} />;
 
   render() {
     const { books, loading } = this.props;
