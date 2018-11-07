@@ -8,8 +8,9 @@ import AppNavigator from './components/AppNavigator';
 
 class App extends Component {
   componentWillMount() {
-    authSetup(this.props.dispatch);
-    apiSetup(this.props.dispatch);
+    const { dispatch } = this.props;
+    authSetup(dispatch);
+    apiSetup(dispatch);
   }
 
   render() {

@@ -9,7 +9,9 @@ const translations = {
     [Routes.Login]: 'Login',
     [Routes.Tab1]: 'Tab 1',
     [Routes.Tab2]: 'Tab 2',
-    [Routes.Home]: 'Home'
+    [Routes.Home]: 'Home',
+    titleMessage: 'Todo List',
+    placeholderItem: 'Enter an item!'
   }
 };
 

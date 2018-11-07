@@ -8,16 +8,18 @@ import Login from './layout';
 
 class LoginContainer extends Component {
   handleLogin = () => {
-    this.props.dispatch(authActions.login());
+    const { dispatch } = this.props;
+    dispatch(authActions.login());
   };
 
   render() {
-    return <Login onLogin={this.handleLogin} loading={this.props.loading} />;
+    const { loading } = this.props;
+    return <Login onLogin={this.handleLogin} loading={loading} />;
   }
 }
 
 LoginContainer.propTypes = {
-  loading: PropTypes.bool
+  loading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = store => ({
