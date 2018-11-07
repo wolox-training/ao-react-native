@@ -13,12 +13,14 @@ import Navigator from '../app/screens';
 
 import auth from './auth/reducer';
 import todoList from './todoList/reducer';
+import listBooks from './listBooks/reducer';
 
 const nav = createNavigationReducer(Navigator);
 
 const reducers = combineReducers({
   auth,
   todoList,
+  listBooks,
   nav
 });
 

@@ -9,7 +9,8 @@ const translations = {
     [Routes.Login]: 'Login',
     [Routes.Tab1]: 'Main view',
     [Routes.Tab2]: 'Todo List',
-    [Routes.Home]: 'Book List',
+    [Routes.Home]: 'Home',
+    [Routes.BookList]: 'Book List',
     titleMessage: 'Todo List',
     placeholderItem: 'Enter an item!'
   }

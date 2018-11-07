@@ -6,15 +6,17 @@ import CustomButton from '../../components/CustomButton';
 
 import styles from './styles';
 
-export default function Home({ onLogout }) {
+export default function Home({ onLogout, navigateToBooks }) {
   return (
     <View style={styles.container}>
       <Text>This is a test</Text>
       <CustomButton onPress={onLogout} green title="Logout!" style={styles.mainButton} />
+      <CustomButton onPress={navigateToBooks} blue title="Go to Books List" style={styles.mainButton} />
     </View>
   );
 }
 
 Home.propTypes = {
-  onLogout: PropTypes.func.isRequired
+  onLogout: PropTypes.func.isRequired,
+  navigateToBooks: PropTypes.func.isRequired
 };
