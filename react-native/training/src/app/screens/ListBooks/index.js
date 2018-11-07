@@ -6,10 +6,9 @@ import Routes from '../../../constants/routes';
 import actionCreators from '../../../redux/listBooks/actions';
 import { itemsBookList } from '../../../propTypes/propTypes';
 
-import Item from './components/Item';
-import Layout from './layout';
+import Book from './layout';
 
-class Book extends Component {
+class BookContainer extends Component {
   componentDidMount() {
     const { getBooks } = this.props;
     getBooks();
@@ -23,30 +22,19 @@ class Book extends Component {
     });
   };
 
-  keyExtractor = item => `${item.id}`;
-
-  renderItems = ({ item }) => <Item key={item.id} book={item} onTapItem={this.handleTapItem} />;
-
   render() {
     const { books, loading } = this.props;
-    return (
-      <Layout
-        books={books}
-        loading={loading}
-        keyExtractor={this.keyExtractor}
-        renderItem={this.renderItems}
-      />
-    );
+    return <Book books={books} loading={loading} handleTapItem={this.handleTapItem} />;
   }
 }
 
-Book.propTypes = {
+BookContainer.propTypes = {
   books: PropTypes.arrayOf(itemsBookList),
   getBooks: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
   navigation: PropTypes.shape({
-    navigate: PropTypes.func
-  }),
-  loading: PropTypes.bool.isRequired
+    navigate: PropTypes.func.isRequired
+  }).isRequired
 };
 
 const mapStateToProps = store => ({
@@ -61,4 +49,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Book);
+)(BookContainer);

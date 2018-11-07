@@ -7,8 +7,8 @@ const namespace = 'app';
 const translations = {
   es: {
     [Routes.Login]: 'Login',
-    [Routes.Tab1]: 'Main view',
-    [Routes.Tab2]: 'Todo List',
+    [Routes.Main]: 'Main view',
+    [Routes.TodoList]: 'Todo List',
     [Routes.Home]: 'Home',
     [Routes.BookList]: 'Book List',
     [Routes.BookDetail]: 'Book Detail',
@@ -17,7 +17,9 @@ const translations = {
     author: 'Author:',
     genre: 'Genre:',
     publisher: 'Publisher:',
-    year: 'Year:'
+    year: 'Year:',
+    btnLogout: 'Logout!',
+    btnGoBooks: 'Go to Books List'
   }
 };
 

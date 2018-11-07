@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { itemsBookList } from '../../../../../propTypes/propTypes';
 
-import Layout from './layout';
+import Item from './layout';
 
-class Item extends Component {
+class ItemContainer extends PureComponent {
   handleOnTap = () => {
     const { onTapItem, book } = this.props;
     onTapItem(book);
@@ -13,13 +13,13 @@ class Item extends Component {
 
   render() {
     const { book } = this.props;
-    return <Layout book={book} handleTap={this.handleOnTap} />;
+    return <Item book={book} handleTap={this.handleOnTap} />;
   }
 }
 
-Item.propTypes = {
+ItemContainer.propTypes = {
   book: itemsBookList,
   onTapItem: PropTypes.func.isRequired
 };
 
-export default Item;
+export default ItemContainer;

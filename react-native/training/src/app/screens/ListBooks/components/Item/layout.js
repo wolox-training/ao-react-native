@@ -8,7 +8,7 @@ import { itemsBookList } from '../../../../../propTypes/propTypes';
 
 import styles from './styles';
 
-function Layout({ book, handleTap }) {
+function Item({ book, handleTap }) {
   return (
     <TouchableHighlight onPress={handleTap}>
       <View style={styles.itemContent}>
@@ -25,9 +25,9 @@ function Layout({ book, handleTap }) {
   );
 }
 
-Layout.propTypes = {
+Item.propTypes = {
   book: itemsBookList,
   handleTap: PropTypes.func.isRequired
 };
 
-export default Layout;
+export default Item;
