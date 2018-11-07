@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import actionCreators from '../../../redux/listBooks/actions';
 import { itemsBookList } from '../../../propTypes/propTypes';
 
-import Layout from './layout';
+import Book from './layout';
 
 class BookContainer extends Component {
   componentDidMount() {
@@ -15,7 +15,7 @@ class BookContainer extends Component {
 
   render() {
     const { books, loading } = this.props;
-    return <Layout books={books} loading={loading} />;
+    return <Book books={books} loading={loading} />;
   }
 }
 
