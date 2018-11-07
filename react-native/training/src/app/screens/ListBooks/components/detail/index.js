@@ -39,7 +39,7 @@ function BookDetail({ navigation }) {
 BookDetail.propTypes = {
   navigation: PropTypes.shape({
     getParam: PropTypes.func.isRequired
-  })
+  }).isRequired
 };
 
 export default BookDetail;
