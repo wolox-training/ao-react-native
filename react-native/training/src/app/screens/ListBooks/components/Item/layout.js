@@ -3,7 +3,7 @@ import { View, Image, TouchableHighlight } from 'react-native';
 import PropTypes from 'prop-types';
 
 import CustomText from '../../../../components/CustomText';
-import defaultImage from '../../../../../assets/default-image-user.png';
+import images from '../../../../../constants/images';
 import { itemsBookList } from '../../../../../propTypes/propTypes';
 
 import styles from './styles';
@@ -14,7 +14,7 @@ function Item({ book, handleTap }) {
       <View style={styles.itemContent}>
         <Image
           style={styles.bookCoverPage}
-          source={book.image_url ? { uri: book.image_url } : defaultImage}
+          source={book.image_url ? { uri: book.image_url } : images.defaultCoverPage}
         />
         <View style={styles.bookDescription}>
           <CustomText style={styles.bookTitle}>{book.title}</CustomText>

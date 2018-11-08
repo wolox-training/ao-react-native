@@ -12,7 +12,7 @@ class Book extends Component {
 
   renderItems = ({ item }) => {
     const { handleTapItem } = this.props;
-    return <Item key={item.id} book={item} onTapItem={handleTapItem} />;
+    return <Item book={item} onTapItem={handleTapItem} />;
   };
 
   render() {

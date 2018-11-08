@@ -14,7 +14,7 @@ import Login from './screens/Login';
 import Home from './screens/Home';
 import TodoList from './screens/TodoList';
 import Books from './screens/ListBooks';
-import BookDetail from './screens/ListBooks/components/detail';
+import BookDetail from './screens/ListBooks/components/Detail';
 
 // ------------------ Initial loading screen
 // TODO: URGENT! Move this component to a separated file and use it ONLY if the project has login.

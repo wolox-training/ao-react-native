@@ -3,14 +3,14 @@ import { Image, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import CustomText from '../../../../components/CustomText';
-import defaultImage from '../../../../../assets/default-image-user.png';
+import images from '../../../../../constants/images';
 import { strings } from '../../../../i18n';
 
 import styles from './styles';
 
 function BookDetail({ navigation }) {
   const book = navigation.getParam('book');
-  const source = book.image_url ? { uri: book.image_url } : defaultImage;
+  const source = book.image_url ? { uri: book.image_url } : images.defaultCoverPage;
   return (
     <View style={styles.detailBook}>
       <Image style={styles.detailCoverPage} source={source} />
