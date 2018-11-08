@@ -11,6 +11,7 @@ export default StyleSheet.create({
   mainButton: {
     backgroundColor: green,
     padding: 10,
-    borderRadius: 3
+    borderRadius: 3,
+    margin: 10
   }
 });

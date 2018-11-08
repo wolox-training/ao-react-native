@@ -1,7 +1,10 @@
 import Reactotron from 'reactotron-react-native';
 import { create } from 'apisauce';
+import Config from 'react-native-config';
 
-const baseURL = 'http://wolox.com';
+import { isAndroid } from '../constants/platform';
+
+const baseURL = isAndroid ? Config.API_BASE_URL_ANDROID : Config.API_BASE_URL_IOS;
 
 const api = create({
   baseURL,
