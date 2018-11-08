@@ -1,15 +1,15 @@
 import React from 'react';
 import { Image, View } from 'react-native';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
+import { itemsBookList } from '../../../../../propTypes/propTypes';
 import CustomText from '../../../../components/CustomText';
 import { defaultCoverPage } from '../../../../../constants/images';
 import { strings } from '../../../../i18n';
 
 import styles from './styles';
 
-function BookDetail({ navigation }) {
-  const book = navigation.getParam('book');
+function BookDetail({ book }) {
   const source = book.image_url ? { uri: book.image_url } : defaultCoverPage;
   return (
     <View style={styles.detailBook}>
@@ -37,9 +37,11 @@ function BookDetail({ navigation }) {
 }
 
 BookDetail.propTypes = {
-  navigation: PropTypes.shape({
-    getParam: PropTypes.func.isRequired
-  }).isRequired
+  book: itemsBookList
 };
 
-export default BookDetail;
+const mapStateToProps = store => ({
+  book: store.listBooks.selectedBook
+});
+
+export default connect(mapStateToProps)(BookDetail);

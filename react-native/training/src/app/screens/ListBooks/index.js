@@ -15,10 +15,10 @@ class BookContainer extends Component {
   }
 
   handleTapItem = book => {
-    const { navigation } = this.props;
+    const { navigation, setSelectedBook } = this.props;
+    setSelectedBook(book);
     navigation.navigate(Routes.BookDetail, {
-      title: book.title,
-      book
+      title: book.title
     });
   };
 
@@ -34,7 +34,8 @@ BookContainer.propTypes = {
   loading: PropTypes.bool.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired
-  }).isRequired
+  }).isRequired,
+  setSelectedBook: PropTypes.func.isRequired
 };
 
 const mapStateToProps = store => ({
@@ -43,7 +44,8 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getBooks: () => dispatch(actionCreators.getBooks())
+  getBooks: () => dispatch(actionCreators.getBooks()),
+  setSelectedBook: book => dispatch(actionCreators.setSelectedBook(book))
 });
 
 export default connect(
