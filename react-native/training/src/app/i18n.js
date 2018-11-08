@@ -11,8 +11,13 @@ const translations = {
     [Routes.TodoList]: 'Todo List',
     [Routes.Home]: 'Home',
     [Routes.BookList]: 'Book List',
+    [Routes.BookDetail]: 'Book Detail',
     titleMessage: 'Todo List',
     placeholderItem: 'Enter an item!',
+    author: 'Author:',
+    genre: 'Genre:',
+    publisher: 'Publisher:',
+    year: 'Year:',
     btnLogout: 'Logout!',
     btnGoBooks: 'Go to Books List'
   }

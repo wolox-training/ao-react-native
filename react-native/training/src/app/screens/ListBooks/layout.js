@@ -10,7 +10,10 @@ import Item from './components/Item';
 class Book extends Component {
   keyExtractor = item => `${item.id}`;
 
-  renderItems = ({ item }) => <Item key={item.id} data={item} />;
+  renderItems = ({ item }) => {
+    const { handleTapItem } = this.props;
+    return <Item book={item} onTapItem={handleTapItem} />;
+  };
 
   render() {
     const { books } = this.props;
@@ -19,7 +22,8 @@ class Book extends Component {
 }
 
 Book.propTypes = {
-  books: PropTypes.arrayOf(itemsBookList)
+  books: PropTypes.arrayOf(itemsBookList),
+  handleTapItem: PropTypes.func.isRequired
 };
 
 export default Loadable(props => props.loading)(Book);

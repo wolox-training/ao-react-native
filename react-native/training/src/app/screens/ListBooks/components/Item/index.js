@@ -1,18 +1,25 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 import { itemsBookList } from '../../../../../propTypes/propTypes';
 
 import Item from './layout';
 
 class ItemContainer extends PureComponent {
+  handleOnTap = () => {
+    const { onTapItem, book } = this.props;
+    onTapItem(book);
+  };
+
   render() {
-    const { data } = this.props;
-    return <Item data={data} />;
+    const { book } = this.props;
+    return <Item book={book} handleTap={this.handleOnTap} />;
   }
 }
 
 ItemContainer.propTypes = {
-  data: itemsBookList
+  book: itemsBookList,
+  onTapItem: PropTypes.func.isRequired
 };
 
 export default ItemContainer;
